@@ -1,0 +1,19 @@
+<section data-ng-controller="ChoicesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Choices</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="choice in choices" data-ng-href="#!/choices/{{choice._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="choice.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="choice.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="choice.text"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!choices.$resolved || choices.length">
+    	No Choices yet, why don't you <a href="/#!/choices/create">create one</a>?
+    </div>
+</section>

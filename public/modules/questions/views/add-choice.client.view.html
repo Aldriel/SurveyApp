@@ -1,0 +1,29 @@
+<section data-ng-controller="QuestionsController" data-ng-init="findOne()">
+    <div>
+        <h3>{{question.number}}. {{question.text}}</h3>
+    </div>
+    <form class="form-horizontal" data-ng-submit="addChoice()" novalidate>
+        <fieldset>
+            <div class="form-group">
+                <h2>Create new Choice</h2>
+                <label class="control-label" for="text">Text</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="text" id="text" class="form-control" placeholder="Text">
+                </div>
+                <label class="control-label" for="order">Order</label>
+                <div class="controls">
+                    <input type="number"  data-ng-model="order" id="order" class="form-control" placeholder="Order">
+                </div>
+                <select ng-model="selectedType" ng-options="type as type.label for type in choiceTypes">Choice type</select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value ="add" class="btn btn-default">
+                <a class="btn btn-primary" href="/#!/questions/{{question._id}}">Cancel</a>
+            </div>
+            <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+</section>

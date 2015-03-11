@@ -1,0 +1,58 @@
+<section class="surveyDisplay"  data-ng-controller="SurveysController" data-ng-init="findOne()">
+    <div data-ng-controller="PagesController">
+        TEST:{{results}}<br>
+        Question:{{question}}
+        <div class="surveySection">
+            {{page.title}}
+        </div>
+        <p class="pageHeader"  ng-bind-html= "page.header"></p>
+        <br>
+        <div data-ng-repeat="question in questions| orderBy: 'number'" data-ng-href="#!/questions/{{question._id}}">
+            <div class="question-header">
+                <h4><a ng-show="authentication.user.roles[0] === 'admin'" href="/#!/questions/{{question._id}}">{{question.text}}</a></h4>
+                <h4><span ng-hide="authentication.user.roles[0] === 'admin'">{{question.text}}</span></h4>
+                Choices: {{question.choices}}
+                <form class="choices" data-ng-submit="submit()">
+                    <div class= "choice" data-ng-repeat="choice in question.choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}">
+                        <div ng-show="choice.type==='checkbox'">
+                            <label>
+                                <input type="checkbox"  name = "{{question._id}}" value = "[{{question._id}},{{choice._id}}]" ng-model= "formData[question._id][choice._id]">
+                                {{choice.text}}
+                            </label>
+                        </div>
+                        <div ng-show="choice.type==='radio'">
+                            <label>
+                                <input type="radio"  name = "{{question._id}}" value = "{{choice._id}}" ng-model= "formData[question._id]">
+                                {{choice.text}}
+                            </label>
+                        </div>
+                        <div  ng-show="choice.type==='text'">
+                            {{choice.text}}: <input type="text"  name ="{{question._id}}"  ng-model= "formData[question._id]">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="oneButton" >
+                <a class="btn btn-primary" ng-click="registerAnswers()">TEST</a>
+            </div>
+            <div class="oneButton" ng-show="page.previousButtonText ===''">
+                <a class="btn btn-primary" ng-click="nextPage()">{{page.nextButtonText}}</a>
+            </div>
+
+            <div ng-hide="page.previousButtonText ===''">
+                <a class="btn btn-primary leftButton" ng-click="previousPage()">{{page.previousButtonText}}</a>
+                <a class="btn btn-primary rightButton" ng-click="nextPage()">{{page.nextButtonText}}</a>
+            </div>
+            <a ng-show="authentication.user.roles[0] === 'admin'" class="btn btn-primary" href="/#!/surveys/{{survey._id}}/edit">
+            Modify survey</a>
+        </div>
+
+        <div id="footer">
+            Confidential. For research purposes only.
+        </div>
+
+
+    </div>
+</section>

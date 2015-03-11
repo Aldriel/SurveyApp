@@ -1,0 +1,40 @@
+<section data-ng-controller="SurveysController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h2>{{survey.title}}</h2>
+    </div>
+    <form class="form-horizontal" data-ng-submit="addPage()" novalidate>
+        <fieldset>
+            <div class="form-group">
+                <h2>Insert new Page</h2>
+                <label class="control-label" for="pageTitle">Title</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="pageTitle" id="pageTitle" class="form-control" placeholder="Title">
+                </div>
+                <label class="control-label" for="pageHeader">Header</label>
+                <div class="controls">
+                    <textarea  data-ng-model="pageHeader" id="pageHeader" class="form-control" cols="30" rows="6"  placeholder="Header"></textarea>
+                </div>
+                <label class="control-label" for="pageNumber">Page #</label>
+                <div class="controls">
+                    <input type="number"  data-ng-model="pageNumber" id="pageNumber" class="form-control" placeholder="Page #">
+                </div>
+                <label class="control-label" for="nextButton">Next Button Text</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="nextButton" id="nextButton" class="form-control" placeholder="Insert text">
+                </div>
+                <label class="control-label" for="previousButton">Previous Button Text</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="previousButton" id="previousButton" class="form-control" placeholder="Insert text">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value ="add" class="btn btn-default">
+                <a class="btn btn-primary" href="/#!/surveys/{{survey._id}}/edit">Back to survey</a>
+            </div>
+            <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+</section>

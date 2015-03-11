@@ -1,0 +1,15 @@
+<section data-ng-controller="SurveysController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Surveys</h1>
+    </div>
+    <div class="list-group">
+        <div data-ng-repeat="survey in surveys" data-ng-href="#!/surveys/{{survey._id}}" class="list-group-item">
+
+                <a href="/#!/surveys/{{survey._id}}"><h3 data-ng-bind="survey.title"></h3></a>
+                <a class="btn btn-primary" href="/#!/surveys/{{survey._id}}/edit">Modify survey</a>
+        </div>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!surveys.$resolved || surveys.length">
+    	No Surveys yet, why don't you <a href="/#!/surveys/create">create one</a>?
+    </div>
+</section>
