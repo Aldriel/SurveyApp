@@ -9,8 +9,6 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         $scope.pageIndex = 0;
         $scope.formData = {};
 
-        var survey = $scope.survey;
-
         // Create new Survey
         $scope.create = function () {
             // Create new Survey object

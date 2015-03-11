@@ -9,17 +9,6 @@ var mongoose = require('mongoose'),
     Answer = require('mongoose').model('Answer'),
     Page = require('mongoose').model('Page');
 
-var AnswerSetSchema = new Schema({
-    survey: {type: Schema.ObjectId,ref: 'Survey', required:true},
-    respondent: {
-        type: Schema.ObjectId,
-        ref:'User', required: false
-    },
-    answers: [Answer]
-});
-
-mongoose.model('AnswerSet', AnswerSetSchema);
-
 /**
  * Survey Schema
  */

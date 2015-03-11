@@ -118,8 +118,8 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
             $scope.getQuestions();
         });
 
+        /*$scope.results =[];
 
-        /*
         $scope.registerAnswers = function(){
             var questions = $scope.page.questions;
             var results = $scope.results;
