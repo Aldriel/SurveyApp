@@ -2,12 +2,13 @@
 
 
 // Surveys controller
-angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys',  'Pages', 'Questions', 'Answers',
-	function($scope, $stateParams, $location, Authentication, Surveys, Pages, Questions, Answers) {
+angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys',  'Pages', 'Questions', 'Answers','Answersets',
+	function($scope, $stateParams, $location, Authentication, Surveys, Pages, Questions, Answers, Answersets) {
 
         $scope.authentication = Authentication;
         $scope.pageIndex = 0;
         $scope.formData = {};
+        $scope.answerSet = {};
 
         // Create new Survey
         $scope.create = function () {
@@ -123,6 +124,23 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
             $scope.formData = {};
         };
 
-    }
+        $scope.startSurvey = function () {
+            $scope.pageIndex++;
+            $scope.formData = {};
+            $scope.initAnswerSet();
+        };
 
+        //Functions for answers
+        $scope.initAnswerSet = function () {
+            $scope.answerSet = new Answersets({
+                survey: $scope.survey._id,
+                respondent: Authentication.user._id,
+                answers: []
+            });
+            $scope.answerSet.$save(function (response) {
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+    }
 ]);

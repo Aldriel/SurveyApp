@@ -7,7 +7,7 @@ module.exports = function(app) {
 	// Answersets Routes
 	app.route('/answersets')
 		.get(answersets.list)
-		.post(users.requiresLogin, answersets.create);
+		.post(answersets.create);
 
 	app.route('/answersets/:answersetId')
 		.get(answersets.read)
