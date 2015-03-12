@@ -6,7 +6,7 @@ module.exports = function(app) {
 
 	// Surveys Routes
 	app.route('/surveys')
-		.get(surveys.list)
+		.get(users.requiresLogin,surveys.list)
 		.post(users.requiresLogin, surveys.create);
 
 	app.route('/surveys/:surveyId')
