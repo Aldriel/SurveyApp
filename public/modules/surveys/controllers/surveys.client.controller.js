@@ -1,6 +1,5 @@
 'use strict';
 
-
 // Surveys controller
 angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys',  'Pages', 'Questions', 'Answers','Answersets',
 	function($scope, $stateParams, $location, Authentication, Surveys, Pages, Questions, Answers, Answersets) {
@@ -142,5 +141,26 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                 $scope.error = errorResponse.data.message;
             });
         };
+
+
+
+        $scope.registerAnswers = function(){
+
+            angular.forEach($scope.page.questions, function(question){
+                var value = $scope.formData[question];
+                var answer = new Answers({
+                    survey: $scope.survey._id,
+                    question: question,
+                    answer: value
+                });
+                answer.$save(function (response) {
+                    $scope.answerSet.answers.push(answer._id);
+                    $scope.answerSet.$update();
+                }, function (errorResponse) {
+                    $scope.error = errorResponse.data.message;
+                });
+            });
+        };
     }
+
 ]);

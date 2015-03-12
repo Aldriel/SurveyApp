@@ -1,6 +1,6 @@
 <section class="surveyDisplay"  data-ng-controller="SurveysController" data-ng-init="findOne()">
     <div data-ng-controller="PagesController">
-        AnswerSet: {{answerSet}}
+        AnswerSet: {{answerSet}}<br>
         formData: {{formData}}
         <div class="surveySection">
             {{page.title}}
@@ -40,7 +40,7 @@
                 <div ng-show="page.nextButtonText !=='Start survey'">
                     <a class="btn btn-primary" ng-click="nextPage()">{{page.nextButtonText}}</a>
                 </div>            </div>
-
+            <a class="btn btn-primary rightButton" ng-click="registerAnswers()">Register answer</a>
 
             <div ng-hide="page.previousButtonText ===''">
                 <a class="btn btn-primary leftButton" ng-click="previousPage()">{{page.previousButtonText}}</a>

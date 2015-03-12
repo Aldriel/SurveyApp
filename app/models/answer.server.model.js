@@ -11,7 +11,7 @@ var mongoose = require('mongoose'),
  */
 var AnswerSchema = new Schema({
     question: {type: Schema.ObjectId,ref: 'Question', required:true},
-    answer: [String]
+    answer: {}
 });
 
 mongoose.model('Answer', AnswerSchema);

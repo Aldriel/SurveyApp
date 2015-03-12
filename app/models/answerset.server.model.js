@@ -4,8 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema,
-    Answer = require('mongoose').model('Answer');
+	Schema = mongoose.Schema;
 
 /**
  * AnswerSet Schema
@@ -15,7 +14,10 @@ var AnswersetSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Survey'
     },
-	answers: [Answer],
+	answers: [{
+        type: Schema.ObjectId,
+        ref: 'Answer'
+    }],
 	respondent: {
 		type: Schema.ObjectId,
 		ref: 'User'

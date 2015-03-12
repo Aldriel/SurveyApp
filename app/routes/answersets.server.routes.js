@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 	app.route('/answersets/:answersetId')
 		.get(answersets.read)
-		.put(users.requiresLogin, answersets.hasAuthorization, answersets.update)
+		.put(answersets.update)
 		.delete(users.requiresLogin, answersets.hasAuthorization, answersets.delete);
 
 	// Finish by binding the Answerset middleware

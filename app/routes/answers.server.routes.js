@@ -7,7 +7,7 @@ module.exports = function(app) {
 	// Answers Routes
 	app.route('/answers')
 		.get(answers.list)
-		.post(users.requiresLogin, answers.create);
+		.post(answers.create);
 
 	app.route('/answers/:answerId')
 		.get(answers.read)
