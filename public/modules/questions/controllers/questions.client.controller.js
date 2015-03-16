@@ -66,15 +66,7 @@ angular.module('questions').controller('QuestionsController', ['$scope', '$state
 			});
 		};
 
-        //Functions for choices
-        $scope.choiceTypes =[
-            {label:'radio', value: 'radio'},
-            {label:'checkbox', value: 'checkbox'},
-            {label:'text', value: 'text'},
-            {label:'number', value: 'number'},
-            {label:'date', value: 'date'}
-        ];
-        $scope.selectedType = $scope.choiceTypes[0];
+
 
         $scope.addChoice = function() {
 
@@ -82,7 +74,6 @@ angular.module('questions').controller('QuestionsController', ['$scope', '$state
             var newChoice = new Choices({
                 text: this.text,
                 order: this.order,
-                type: this.selectedType.value,
                 question: question._id
             });
 

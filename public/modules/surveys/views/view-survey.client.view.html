@@ -1,8 +1,5 @@
 <section class="surveyDisplay"  data-ng-controller="SurveysController" data-ng-init="findOne()">
     <div data-ng-controller="PagesController">
-        AnswerSet: {{answerSet}}<br>
-        formData: {{formData}}<br>
-        timeout: {{timeout}}
         <div class="surveySection">
             {{page.title}}
         </div>
@@ -14,19 +11,19 @@
                 <h4><span ng-hide="authentication.user.roles[0] === 'admin'">{{question.text}}</span></h4>
                 <form class="choices" data-ng-submit="submit()">
                     <div class= "choice" data-ng-repeat="choice in question.choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}">
-                        <div ng-show="choice.type==='checkbox'">
+                        <div ng-show="question.type==='checkbox'">
                             <label>
                                 <input type="checkbox"  name = "{{question._id}}" value = "[{{question._id}},{{choice._id}}]" ng-model= "formData[question._id][choice._id]">
                                 {{choice.text}}
                             </label>
                         </div>
-                        <div ng-show="choice.type==='radio'">
+                        <div ng-show="question.type==='radio'">
                             <label>
                                 <input type="radio"  name = "{{question._id}}" value = "{{choice._id}}" ng-model= "formData[question._id]">
                                 {{choice.text}}
                             </label>
                         </div>
-                        <div  ng-show="choice.type==='text'">
+                        <div  ng-show="question.type==='text'">
                             {{choice.text}}: <input type="text"  name ="{{question._id}}"  ng-model= "formData[question._id]">
                         </div>
                     </div>
@@ -39,13 +36,12 @@
                     <a class="btn btn-primary" ng-click="startSurvey()">{{page.nextButtonText}}</a>
                 </div>
                 <div ng-show="page.nextButtonText !=='Start survey'">
-                    <a class="btn btn-primary" ng-click="nextPage()">{{page.nextButtonText}}</a>
-                </div>            </div>
-            <a class="btn btn-primary rightButton" ng-click="registerAnswers()">Register answer</a>
-
+                    <a class="btn btn-primary" ng-click="next()">{{page.nextButtonText}}</a>
+                </div>
+            </div>
             <div ng-hide="page.previousButtonText ===''">
                 <a class="btn btn-primary leftButton" ng-click="previousPage()">{{page.previousButtonText}}</a>
-                <a class="btn btn-primary rightButton" ng-click="nextPage()">{{page.nextButtonText}}</a>
+                <a class="btn btn-primary rightButton" ng-click="next()">{{page.nextButtonText}}</a>
             </div>
             <a ng-show="authentication.user.roles[0] === 'admin'" class="btn btn-primary" href="/#!/surveys/{{survey._id}}/edit">
             Modify survey</a>

@@ -72,8 +72,8 @@ exports.delete = function(req, res) {
 /**
  * List of Answersets
  */
-exports.list = function(req, res) { 
-	Answerset.find().sort('-created').populate('user', 'displayName').exec(function(err, answersets) {
+exports.list = function(req, res) {
+    Answerset.find().sort('-created').populate('survey', 'title').populate('respondent', 'displayName').exec(function(err, answersets) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,7 +88,7 @@ exports.list = function(req, res) {
  * Answerset middleware
  */
 exports.answersetByID = function(req, res, next, id) { 
-	Answerset.findById(id).populate('user', 'displayName').exec(function(err, answerset) {
+	Answerset.findById(id).populate('respondent', 'displayName').populate('answers').exec(function(err, answerset) {
 		if (err) return next(err);
 		if (! answerset) return next(new Error('Failed to load Answerset ' + id));
 		req.answerset = answerset ;

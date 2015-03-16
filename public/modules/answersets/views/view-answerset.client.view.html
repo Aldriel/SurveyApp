@@ -1,8 +1,9 @@
 <section data-ng-controller="AnswersetsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="answerset.name"></h1>
+        <h3 class="list-group-item-heading" data-ng-bind="answerset.survey.title"></h3>
+        <h4>Answer Set #{{answerset._id}}  Respondent: {{answerset.respondent.displayName}}</h4>
 	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == answerset.user._id))">
+	<div class="pull-right" data-ng-show="authentication.user.roles[0]==='admin'">
 		<a class="btn btn-primary" href="/#!/answersets/{{answerset._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
@@ -10,12 +11,8 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="answerset.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="answerset.user.displayName"></span>
-		</em>
-	</small>
+    <div data-ng-repeat="answer in answerset.answers| orderBy: 'order'" >
+            Answer:{{answer}}
+
+    </div>
 </section>

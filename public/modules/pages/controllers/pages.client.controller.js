@@ -81,6 +81,7 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
                 text: this.questionText,
                 number: this.questionNumber,
                 choices: [],
+                type: this.selectedType.value,
                 page: page._id
             });
 
@@ -114,34 +115,19 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
             }
         };
 
+        //Functions for choices
+        $scope.choiceTypes =[
+            {label:'radio', value: 'radio'},
+            {label:'checkbox', value: 'checkbox'},
+            {label:'text', value: 'text'},
+            {label:'number', value: 'number'},
+            {label:'date', value: 'date'}
+        ];
+        $scope.selectedType = $scope.choiceTypes[0];
+
         $scope.$watch('page.questions', function () {
             $scope.getQuestions();
         });
 
-        /*$scope.results =[];
-
-        $scope.registerAnswers = function(){
-            var questions = $scope.page.questions;
-            var results = $scope.results;
-            for (var i in questions) {
-                var questionId = questions[i];
-                var value = $scope.formData[questionId];
-                var answer = new Answers({
-                    survey: $scope.survey._id,
-                    question: questionId,
-                    answer: value
-                });
-                answer.$save(function (response) {
-                    survey.answerSet.push(answer._id);
-                    survey.$update(function () {
-                    }, function (errorResponse) {
-                        $scope.error = errorResponse.data.message;
-                    });
-
-                }, function (errorResponse) {
-                    $scope.error = errorResponse.data.message;
-                });
-            }
-        };*/
 	}
 ]);

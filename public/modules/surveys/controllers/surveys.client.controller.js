@@ -118,9 +118,13 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 
         };
 
-        $scope.nextPage = function () {
+        function nextPage() {
             $scope.pageIndex++;
             $scope.formData = {};
+        }
+
+        $scope.next = function(){
+            registerAnswers();
         };
 
         $scope.startSurvey = function () {
@@ -150,7 +154,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         }
 
 
-        $scope.registerAnswers = function(){
+        function registerAnswers(){
             var timeout = 0;
             angular.forEach($scope.page.questions, function(question){
                 var value = $scope.formData[question];
@@ -168,8 +172,9 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
             });
             console.log(timeout);
             setTimeout(updateAnswerSet, timeout);
+            setTimeout(nextPage, timeout);
 
-        };
+        }
     }
 
 ]);

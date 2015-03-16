@@ -73,7 +73,7 @@ exports.delete = function(req, res) {
  * List of Answers
  */
 exports.list = function(req, res) { 
-	Answer.find().sort('-created').populate('user', 'displayName').exec(function(err, answers) {
+	Answer.find().sort('-created').populate('question').exec(function(err, answers) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,7 +88,7 @@ exports.list = function(req, res) {
  * Answer middleware
  */
 exports.answerByID = function(req, res, next, id) { 
-	Answer.findById(id).populate('user', 'displayName').exec(function(err, answer) {
+	Answer.findById(id).populate('question').exec(function(err, answer) {
 		if (err) return next(err);
 		if (! answer) return next(new Error('Failed to load Answer ' + id));
 		req.answer = answer ;

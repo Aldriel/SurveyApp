@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Answer Schema
  */
 var AnswerSchema = new Schema({
-    question: {type: Schema.ObjectId,ref: 'Question', required:true},
+    question: {type: Schema.ObjectId,ref: 'Question'},
     answer: {}
 });
 

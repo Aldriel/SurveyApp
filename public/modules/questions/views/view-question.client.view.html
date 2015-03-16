@@ -15,12 +15,12 @@
     <section data-ng-controller="ChoicesController" data-ng-init="find()">
         <div class="list-group" data-ng-repeat="choice in choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}" >
             <div ng-show="choice.question === question._id">
-                <div ng-show="choice.type==='radio' || choice.type==='checkbox'">
-                    <input type="{{choice.type}}"> <a href="/#!/choices/{{choice._id}}">{{choice.text}}</a></h4>
+                <div ng-show="question.type==='radio' || question.type==='checkbox'">
+                    <input type="{{question.type}}"> <a href="/#!/choices/{{choice._id}}">{{choice.text}}</a></h4>
                 </div>
-                <div ng-hide="choice.type==='radio' || choice.type==='checkbox'">
+                <div ng-hide="question.type==='radio' || question.type==='checkbox'">
                     <a href="/#!/choices/{{choice._id}}">{{choice.text}}</a></h4>
-                    <input type="{{choice.type}}" .placeholder="{{choice.text}}">
+                    <input type="{{question.type}}" .placeholder="{{choice.text}}">
                 </div>
             </div>
         </div>
