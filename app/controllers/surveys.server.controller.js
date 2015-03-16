@@ -4,8 +4,10 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+    async = require('async'),
 	errorHandler = require('./errors.server.controller'),
 	Survey = mongoose.model('Survey'),
+
 	_ = require('lodash');
 
 /**

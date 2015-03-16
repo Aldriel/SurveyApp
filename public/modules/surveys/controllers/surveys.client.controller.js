@@ -142,10 +142,16 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
             });
         };
 
+        function updateAnswerSet() {
+            $scope.answerSet.$update(function () {
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        }
 
 
         $scope.registerAnswers = function(){
-
+            var timeout = 0;
             angular.forEach($scope.page.questions, function(question){
                 var value = $scope.formData[question];
                 var answer = new Answers({
@@ -153,13 +159,16 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                     question: question,
                     answer: value
                 });
+                timeout =+ 10;
                 answer.$save(function (response) {
                     $scope.answerSet.answers.push(answer._id);
-                    $scope.answerSet.$update();
                 }, function (errorResponse) {
                     $scope.error = errorResponse.data.message;
                 });
             });
+            console.log(timeout);
+            setTimeout(updateAnswerSet, timeout);
+
         };
     }
 
