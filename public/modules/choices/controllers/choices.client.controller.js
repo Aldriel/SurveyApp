@@ -65,17 +65,5 @@ angular.module('choices').controller('ChoicesController', ['$scope', '$statePara
 				choiceId: $stateParams.choiceId
 			});
 		};
-
-        //Functions for choices
-        $scope.choiceTypes =[
-            {label:'radio', value: 'radio'},
-            {label:'checkbox', value: 'checkbox'},
-            {label:'text', value: 'text'},
-            {label:'number', value: 'number'},
-            {label:'date', value: 'date'}
-        ];
-        $scope.selectedType = $scope.choiceTypes[0];
-
-
 	}
 ]);
