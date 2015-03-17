@@ -9,48 +9,64 @@
             <div class="question-header">
                 <h4><a ng-show="authentication.user.roles[0] === 'admin'" href="/#!/questions/{{question._id}}">{{question.text}}</a></h4>
                 <h4><span ng-hide="authentication.user.roles[0] === 'admin'">{{question.text}}</span></h4>
-                <form class="choices" data-ng-submit="submit()">
+
+                <!-- FORM RADIO-->
+                <form  ng-show="question.type==='radio'" class="choices" name="radioForm" ng-submit="submitForm()">
                     <div class= "choice" data-ng-repeat="choice in question.choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}">
-                        <div ng-show="question.type==='checkbox'">
+
+                        <div>
                             <label>
-                                <input type="checkbox"  name = "{{question._id}}" value = "[{{question._id}},{{choice._id}}]" ng-model= "formData[question._id][choice._id]">
+                                <input type="radio"  name = "{{question._id}}" value = "{{choice._id}}" ng-model= "formData[question._id]" required>
                                 {{choice.text}}
                             </label>
                         </div>
-                        <div ng-show="question.type==='radio'">
+                    </div>
+                    <div class="submitButton">
+                        <button type="submit" class="btn btn-primary" ng-disabled="radioForm.$invalid">Next</button>
+                    </div>
+                </form>
+
+                <!-- FORM CHECKBOX-->
+                <form  ng-show="question.type==='checkbox'" class="choices" name="checkboxForm" ng-submit="submitForm()">
+                    <div class= "choice" data-ng-repeat="choice in question.choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}">
+                        <div>
                             <label>
-                                <input type="radio"  name = "{{question._id}}" value = "{{choice._id}}" ng-model= "formData[question._id]">
+                                <input type="checkbox"  name="{{question._id}}" value = "[{{question._id}},{{choice._id}}]" ng-click="checkBox()" ng-model= "formData[question._id][choice._id]">
                                 {{choice.text}}
                             </label>
                         </div>
-                        <div  ng-show="question.type==='text'">
-                            {{choice.text}}: <input type="text"  name ="{{question._id}}"  ng-model= "formData[question._id]">
+                    </div>
+                    <div class="submitButton">
+                        <button type="submit" class="btn btn-primary" ng-disabled="unchecked || !someSelected(formData[question._id])">Next</button>
+                    </div>
+                </form>
+
+                <!-- FORM TEXT-->
+                <form  ng-show="question.type==='text'" class="choices" name="textForm" ng-submit="submitForm()">
+                    <div class= "choice" data-ng-repeat="choice in question.choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}">
+                        <div>
+                            {{choice.text}}: <input type="text"  name ="{{question._id}}"  ng-model= "formData[question._id]" ng-minlength=3>
                         </div>
+                    </div>
+                    <div class="submitButton">
+                        <button type="submit" class="btn btn-primary" ng-disabled="textForm.$invalid">Next</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="buttons">
-            <div class="oneButton" ng-show="page.previousButtonText ===''">
+            <div class="oneButton">
                 <div ng-show="page.nextButtonText ==='Start survey'">
                     <a class="btn btn-primary" ng-click="startSurvey()">{{page.nextButtonText}}</a>
                 </div>
-                <div ng-show="page.nextButtonText !=='Start survey'">
-                    <a class="btn btn-primary" ng-click="next()">{{page.nextButtonText}}</a>
-                </div>
             </div>
-            <div ng-hide="page.previousButtonText ===''">
+            <div ng-show="authentication.user.roles[0] === 'admin'">
                 <a class="btn btn-primary leftButton" ng-click="previousPage()">{{page.previousButtonText}}</a>
-                <a class="btn btn-primary rightButton" ng-click="next()">{{page.nextButtonText}}</a>
+                <a class="btn btn-primary" href="/#!/surveys/{{survey._id}}/edit">Modify survey</a>
             </div>
-            <a ng-show="authentication.user.roles[0] === 'admin'" class="btn btn-primary" href="/#!/surveys/{{survey._id}}/edit">
-            Modify survey</a>
         </div>
-
         <div id="footer">
             Confidential. For research purposes only.
         </div>
-
-
     </div>
 </section>

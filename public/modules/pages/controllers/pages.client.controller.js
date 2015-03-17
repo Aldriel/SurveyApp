@@ -128,6 +128,5 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
         $scope.$watch('page.questions', function () {
             $scope.getQuestions();
         });
-
 	}
 ]);

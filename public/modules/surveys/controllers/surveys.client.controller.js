@@ -8,6 +8,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         $scope.pageIndex = 0;
         $scope.formData = {};
         $scope.answerSet = {};
+        $scope.unchecked = true;
 
         // Create new Survey
         $scope.create = function () {
@@ -121,15 +122,13 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         function nextPage() {
             $scope.pageIndex++;
             $scope.formData = {};
+            $scope.unchecked = true;
         }
-
-        $scope.next = function(){
-            registerAnswers();
-        };
 
         $scope.startSurvey = function () {
             $scope.pageIndex++;
             $scope.formData = {};
+            $scope.unchecked = true;
             $scope.initAnswerSet();
         };
 
@@ -173,8 +172,23 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
             console.log(timeout);
             setTimeout(updateAnswerSet, timeout);
             setTimeout(nextPage, timeout);
-
         }
+
+        $scope.submitForm = function() {
+            // check to make sure the form is completely valid
+            registerAnswers();
+
+        };
+
+        $scope.checkBox = function() {
+                $scope.unchecked = false;
+        };
+
+        $scope.someSelected = function (object) {
+            return Object.keys(object).some(function (key) {
+                return object[key];
+            });
+        };
     }
 
 ]);

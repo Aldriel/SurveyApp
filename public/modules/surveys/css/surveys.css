@@ -44,7 +44,7 @@ textarea #header{
 }
 
 .surveySection{
-    margin: 12px 0 20px 0;
+    margin: 12px 0 10px 0;
     padding:6px 0 3px 0;
     background-color: #150759;
     border-radius:6px;
@@ -60,7 +60,7 @@ textarea #header{
 }
 
 .question-header{
-    margin:24px 30px 10px 30px;
+    margin:12px 30px 10px 30px;
 }
 
 .page{
@@ -90,14 +90,23 @@ input[type=checkbox]{
 }
 
 .buttons {
-    width:840px;
+    width:870px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 45px;
     margin-bottom: 36px;
 }
+
+.submitButton{
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left:355px;
+    margin-top: 45px;
+    margin-bottom: 36px;
+}
 .btn{
-    padding: 10px 20px 10px 20px;
+    padding: 6px 10px 6px 10px;
 }
 
 .oneButton{
