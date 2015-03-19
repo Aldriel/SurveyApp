@@ -155,6 +155,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 
         function registerAnswers(){
             var timeout = 0;
+            var skipLogic = false;
             angular.forEach($scope.page.questions, function(question){
                 var value = $scope.formData[question];
                 var answer = new Answers({
@@ -169,15 +170,12 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                     $scope.error = errorResponse.data.message;
                 });
             });
-            console.log(timeout);
             setTimeout(updateAnswerSet, timeout);
             setTimeout(nextPage, timeout);
         }
 
         $scope.submitForm = function() {
-            // check to make sure the form is completely valid
             registerAnswers();
-
         };
 
         $scope.checkBox = function() {

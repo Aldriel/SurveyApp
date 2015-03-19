@@ -66,14 +66,13 @@ angular.module('questions').controller('QuestionsController', ['$scope', '$state
 			});
 		};
 
-
-
         $scope.addChoice = function() {
 
             var question = $scope.question;
             var newChoice = new Choices({
                 text: this.text,
                 order: this.order,
+                skipLogic: this.skipLogic,
                 question: question._id
             });
 

@@ -3,7 +3,8 @@
 // Pages controller
 angular.module('pages').controller('PagesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Pages', 'Questions', 'Answers',
 	function($scope, $stateParams, $location, Authentication, Pages, Questions, Answers) {
-		$scope.authentication = Authentication;
+
+        $scope.authentication = Authentication;
         $scope.questions =[];
 
 		// Create new Page
@@ -47,7 +48,6 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
 					$location.path('pages');
 				});
 			}
-
 		};
 
 		// Update existing Page

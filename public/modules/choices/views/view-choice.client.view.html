@@ -3,14 +3,13 @@
 		<h3 data-ng-bind="choice.text"></h3>
         <h4>Order: {{choice.order}}</h4>
         <h4>Type: {{choice.type}}</h4>
-        <div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == choice.user._id))">
+        <div class="pull-right" data-ng-show="authentication.user.roles[0]==='admin'">
         <a class="btn btn-primary" href="/#!/choices/{{choice._id}}/edit">
-            Edit</i>
+            Edit
         </a>
         <a class="btn btn-primary" data-ng-click="remove();">
             <i class="glyphicon glyphicon-trash"></i>
         </a>
     </div>
 	</div>
-
 </section>
