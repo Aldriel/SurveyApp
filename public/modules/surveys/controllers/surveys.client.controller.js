@@ -175,11 +175,14 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         }
 
         $scope.submitForm = function() {
+            // check to make sure the form is completely valid
             registerAnswers();
+
         };
 
         $scope.checkBox = function() {
-                $scope.unchecked = false;
+            $scope.unchecked = false;
+
         };
 
         $scope.someSelected = function (object) {

@@ -6,6 +6,7 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
 
         $scope.authentication = Authentication;
         $scope.questions =[];
+        $scope.test = "this is a test";
 
 		// Create new Page
 		$scope.create = function() {
@@ -48,6 +49,7 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
 					$location.path('pages');
 				});
 			}
+
 		};
 
 		// Update existing Page
