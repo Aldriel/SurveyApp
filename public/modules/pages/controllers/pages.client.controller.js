@@ -3,10 +3,8 @@
 // Pages controller
 angular.module('pages').controller('PagesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Pages', 'Questions', 'Answers',
 	function($scope, $stateParams, $location, Authentication, Pages, Questions, Answers) {
-
-        $scope.authentication = Authentication;
+		$scope.authentication = Authentication;
         $scope.questions =[];
-        $scope.test = "this is a test";
 
 		// Create new Page
 		$scope.create = function() {

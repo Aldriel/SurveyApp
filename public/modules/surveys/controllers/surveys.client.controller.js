@@ -8,7 +8,6 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         $scope.pageIndex = 0;
         $scope.formData = {};
         $scope.answerSet = {};
-        $scope.unchecked = true;
 
         // Create new Survey
         $scope.create = function () {
@@ -155,7 +154,6 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 
         function registerAnswers(){
             var timeout = 0;
-            var skipLogic = false;
             angular.forEach($scope.page.questions, function(question){
                 var value = $scope.formData[question];
                 var answer = new Answers({
@@ -170,6 +168,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                     $scope.error = errorResponse.data.message;
                 });
             });
+            console.log(timeout);
             setTimeout(updateAnswerSet, timeout);
             setTimeout(nextPage, timeout);
         }
@@ -180,15 +179,32 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 
         };
 
-        $scope.checkBox = function() {
-            $scope.unchecked = false;
+        function isPresent(array, element){
+            var present = false;
+            var i =0;
+            while (!present && i< array.length){
+                if(array[i] === element){
+                    present = true;
+                }
+            }
+            return present;
+        }
 
-        };
+        $scope.updateQuestionValue = function(choice){
 
-        $scope.someSelected = function (object) {
-            return Object.keys(object).some(function (key) {
-                return object[key];
-            });
+            if($scope.value[choice._id] === true){
+                $scope.value[choice._id] = false;
+                $scope.unchecked = true;
+                for(var i in $scope.value){
+                    if($scope.value[i] === true){
+                        $scope.unchecked = false;
+                    }
+                }
+            } else {
+                $scope.value[choice._id] = true;
+                $scope.unchecked = false;
+            }
+
         };
     }
 

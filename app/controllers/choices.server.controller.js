@@ -13,6 +13,8 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 	var choice = new Choice(req.body);
+	choice.user = req.user;
+
 	choice.save(function(err) {
 		if (err) {
 			return res.status(400).send({

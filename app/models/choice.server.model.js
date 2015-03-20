@@ -17,7 +17,10 @@ var ChoiceSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Question'
     },
-	skipLogic: String
+	user: {
+		type: Schema.ObjectId,
+		ref: 'User'
+	}
 });
 
 mongoose.model('Choice', ChoiceSchema);
