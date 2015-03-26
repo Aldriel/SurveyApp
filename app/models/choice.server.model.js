@@ -17,10 +17,11 @@ var ChoiceSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Question'
     },
-	user: {
-		type: Schema.ObjectId,
-		ref: 'User'
-	}
+    nextPageURL: {
+        type: String,
+        default: ''
+    }
+
 });
 
 mongoose.model('Choice', ChoiceSchema);

@@ -109,8 +109,19 @@ input[type=checkbox]{
     padding: 6px 10px 6px 10px;
 }
 
-.oneButton{
-    padding-left:388px;
+.next{
+    width:800px;
+    height:40px;
+    padding-left:500px;
+    margin-bottom:10px;
+
+}
+
+.start{
+    width:800px;
+    height:40px;
+    padding-left:460px;
+    margin-bottom:10px;
 }
 
 .leftButton{
@@ -121,6 +132,49 @@ input[type=checkbox]{
     margin-left:640px;
 }
 
+
+.radioMatrix{
+    margin-left:24px;
+}
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 1px;
+
+}
+
+th {
+    width: 15%;
+    padding:6px 6px 6px 8px;
+    text-align: center;
+}
+
+td {
+    border: 1px solid black;
+    width: 15%;
+    padding:6px 6px 6px 8px;
+    text-align: center;
+
+
+
+}
+td.firstCol{
+    width: 25%;
+}
+
+table.multipleQuestion{
+    border: 1px solid #000066;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin:30px 20px 35px 30px;
+    width: 850px;
+}
+
+td.multipleQuestion{
+    padding:4px 10px 4px 10px;
+    text-align: left;
+}
 
 #footer{
     width:100%;

@@ -13,7 +13,6 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 	var page = new Page(req.body);
-	page.user = req.user;
 	page.save(function(err) {
 		if (err) {
 			return res.status(400).send({

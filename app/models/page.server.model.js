@@ -26,10 +26,6 @@ var PageSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Survey'
     },
-    user: {
-        type: Schema.ObjectId,
-        ref: 'User'
-    },
     nextButtonText: {
         type: String,
         default: 'Next'
@@ -37,6 +33,10 @@ var PageSchema = new Schema({
     previousButtonText: {
         type: String,
         default: 'Previous'
+    },
+    customPageURL: {
+        type: String,
+        default: ''
     }
 });
 

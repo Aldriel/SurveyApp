@@ -74,7 +74,8 @@ angular.module('questions').controller('QuestionsController', ['$scope', '$state
             var newChoice = new Choices({
                 text: this.text,
                 order: this.order,
-                question: question._id
+                question: question._id,
+                nextPageURL: this.nextPageURL
             });
 
             newChoice.$save(function(response) {

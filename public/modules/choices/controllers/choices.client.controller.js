@@ -45,7 +45,6 @@ angular.module('choices').controller('ChoicesController', ['$scope', '$statePara
 		// Update existing Choice
 		$scope.update = function() {
 			var choice = $scope.choice;
-            choice.type = this.selectedType.value;
 
 			choice.$update(function() {
 				$location.path('choices/' + choice._id);

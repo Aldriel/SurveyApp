@@ -121,7 +121,8 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
             {label:'checkbox', value: 'checkbox'},
             {label:'text', value: 'text'},
             {label:'number', value: 'number'},
-            {label:'date', value: 'date'}
+            {label:'date', value: 'date'},
+            {label:'radioMatrix', value: 'radioMatrix'}
         ];
         $scope.selectedType = $scope.choiceTypes[0];
 

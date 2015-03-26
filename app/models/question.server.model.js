@@ -15,7 +15,7 @@ var QuestionSchema = new Schema({
         type: Boolean,
         default:true
     },
-    type: {type: String, enum:['radio', 'checkbox', 'text', 'number', 'date']},
+    type: {type: String, enum:['radio', 'checkbox', 'text', 'number', 'date', 'radioMatrix']},
     choices: [{
         type: Schema.ObjectId,
         ref: 'Choice'

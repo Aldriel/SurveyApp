@@ -1,0 +1,24 @@
+<div class="radioMatrix"><h4 class="RadioMatrix">{{page.header}}</h4>
+    <ng-form name="pageForm" >
+        <table class="multipleQuestion">
+            <tr>
+                <th class = "firstCol">Practice</td>
+                <th>Never</td>
+                <th>Sometimes</td>
+                <th>Most of the time</td>
+                <th>Always</td>
+            </tr>
+            <tr data-ng-repeat="question in questions| orderBy: 'number'" data-ng-href="#!/questions/{{question._id}}">
+                <td>{{question.text}}</td>
+                <td><input type="radio"  name = "{{question._id}}" value = "Never" ng-model= "formData[question._id]" required></td>
+                <td><input type="radio"  name = "{{question._id}}" value = "Sometimes" ng-model= "formData[question._id]" required></td>
+                <td><input type="radio"  name = "{{question._id}}" value = "Most of the time" ng-model= "formData[question._id]" required></td>
+                <td><input type="radio"  name = "{{question._id}}" value = "Always" ng-model= "formData[question._id]" required></td>
+            </tr>
+        </table>
+        <div class ="oneButton">
+            <button ng-show="page.nextButtonText !=='Start survey'" ng-click="submitForm()" class="btn btn-primary " ng-disabled="pageForm.$invalid && unchecked ">Next</button>
+        </div>
+    </ng-form>
+</div>
+

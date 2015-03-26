@@ -8,6 +8,8 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         $scope.pageIndex = 0;
         $scope.formData = {};
         $scope.answerSet = {};
+        $scope.unchecked = true;
+        $scope.value =[];
 
         // Create new Survey
         $scope.create = function () {
@@ -115,6 +117,8 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         $scope.previousPage = function () {
             $scope.pageIndex--;
             $scope.formData = {};
+            $scope.unchecked = true;
+            $scope.value =[];
 
         };
 
@@ -122,12 +126,14 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
             $scope.pageIndex++;
             $scope.formData = {};
             $scope.unchecked = true;
+            $scope.value =[];
         }
 
         $scope.startSurvey = function () {
             $scope.pageIndex++;
             $scope.formData = {};
             $scope.unchecked = true;
+            $scope.value =[];
             $scope.initAnswerSet();
         };
 
