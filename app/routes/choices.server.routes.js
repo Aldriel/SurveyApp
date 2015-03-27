@@ -11,8 +11,8 @@ module.exports = function(app) {
 
 	app.route('/choices/:choiceId')
 		.get(choices.read)
-		.put(users.requiresLogin, choices.hasAuthorization, choices.update)
-		.delete(users.requiresLogin, choices.hasAuthorization, choices.delete);
+		.put(users.requiresLogin, choices.update)
+		.delete(users.requiresLogin, choices.delete);
 
 	// Finish by binding the Choice middleware
 	app.param('choiceId', choices.choiceByID);

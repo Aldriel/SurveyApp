@@ -87,7 +87,7 @@ exports.list = function(req, res) {
  * Choice middleware
  */
 exports.choiceByID = function(req, res, next, id) { 
-	Choice.findById(id).populate('user', 'displayName').exec(function(err, choice) {
+	Choice.findById(id).exec(function(err, choice) {
 		if (err) return next(err);
 		if (! choice) return next(new Error('Failed to load Choice ' + id));
 		req.choice = choice ;
@@ -99,7 +99,7 @@ exports.choiceByID = function(req, res, next, id) {
  * Choice authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.choice.user.id !== req.user.id) {
+	if (req.choice.user.roles[0] !== 'admin') {
 		return res.status(403).send('User is not authorized');
 	}
 	next();

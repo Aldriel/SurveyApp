@@ -11,8 +11,8 @@ module.exports = function(app) {
 
 	app.route('/questions/:questionId')
 		.get(questions.read)
-		.put(users.requiresLogin, questions.hasAuthorization, questions.update)
-		.delete(users.requiresLogin, questions.hasAuthorization, questions.delete);
+		.put(users.requiresLogin, questions.update)
+		.delete(users.requiresLogin, questions.delete);
 
 	// Finish by binding the Question middleware
 	app.param('questionId', questions.questionByID);

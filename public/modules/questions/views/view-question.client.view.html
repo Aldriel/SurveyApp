@@ -14,16 +14,16 @@
     <h4>{{question.text}}</h4>
     <section data-ng-controller="ChoicesController" data-ng-init="find()">
         <div  data-ng-repeat="choice in choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}" >
-            <div ng-show="choice.question === question._id">
+            <div class = "choice" ng-show="choice.question === question._id">
                 <div ng-show="question.type==='radio' || question.type==='checkbox'">
-                    <input type="{{question.type}}"> <a href="/#!/choices/{{choice._id}}">{{choice.text}}</a></h4>
+                    <input type="{{question.type}}"> <a href="/#!/choices/{{choice._id}}/edit">{{choice.text}}</a></h4>
                 </div>
                 <div ng-show="question.type==='text' || question.type==='date'">
-                    <a href="/#!/choices/{{choice._id}}">{{choice.text}}</a></h4>
+                    <a href="/#!/choices/{{choice._id}}/edit">{{choice.text}}</a></h4>
                     <input type="text" .placeholder="{{choice.text}}">
                 </div>
                 <div ng-show="question.type==='radioMatrix'">
-                    <input type="radio"> <a href="/#!/choices/{{choice._id}}">{{choice.text}}</a></h4>
+                    <input type="radio"> <a href="/#!/choices/{{choice._id}}/edit">{{choice.text}}</a></h4>
                 </div>
             </div>
         </div>

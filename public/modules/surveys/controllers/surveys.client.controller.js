@@ -80,7 +80,8 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                 number: this.pageNumber,
                 survey: survey._id,
                 nextButtonText: this.nextButton,
-                previousButtonText: this.previousButton
+                previousButtonText: this.previousButton,
+                customPageURL: this.customPageURL
             });
 
             newPage.$save(function (response) {
