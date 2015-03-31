@@ -70,13 +70,22 @@ textarea #header{
 
 .choices{
     margin:18px 10px 10px 24px;
+    padding-left:10px;
 }
 
 .choice {
-    margin:5px 8px 5px 0;
+    margin:5px 8px 5px 20px;
 }
-
-input[type=radio]{
+input{
+    display:inline-block;
+    vertical-align: top;
+}
+.choiceText{
+    display:inline-block;
+    width: 600px;
+    line-height: 160%;
+}
+  input[type=radio]{
     margin-right:6px;
 }
 

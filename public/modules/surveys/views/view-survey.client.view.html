@@ -16,13 +16,14 @@
                     <div class="question-header">
                         <h4><a ng-show="authentication.user.roles[0] === 'admin'" href="/#!/questions/{{question._id}}">{{question.text}}</a></h4>
                         <h4><span ng-hide="authentication.user.roles[0] === 'admin'">{{question.text}}</span></h4>
-
+                    </div>
+                    <div class="choices">
                         <!-- FORM RADIO-->
                         <div ng-show="question.type==='radio'" class= "choice" data-ng-repeat="choice in question.choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}">
                             <div>
                                 <label>
                                     <input type="radio"  name = "{{question._id}}" value = "{{choice._id}}" ng-model= "formData[question._id]" required>
-                                    {{choice.text}}
+                                    <div class="choiceText">{{choice.text}}</div>
                                 </label>
                             </div>
                         </div>
@@ -50,7 +51,6 @@
                 <div class ="next">
                     <button ng-show="page.nextButtonText !=='Start survey'" ng-click="submitForm()" class="btn btn-primary" ng-disabled="pageForm.$invalid && unchecked ">Next</button>
                 </div>
-
             </ng-form>
         </div>
         <div>
@@ -67,6 +67,5 @@
         <div id="footer">
             Confidential. For research purposes only.
         </div>
-
     </div>
 </section>
