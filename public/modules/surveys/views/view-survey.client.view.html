@@ -3,7 +3,6 @@
         <div class="surveySection">
             {{page.title}}
         </div>
-
         <br>
         <div ng-hide ="page.customPageURL ===''">
             <ng-include src="page.customPageURL"></ng-include>
@@ -22,7 +21,7 @@
                         <div ng-show="question.type==='radio'" class= "choice" data-ng-repeat="choice in question.choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}">
                             <div>
                                 <label>
-                                    <input type="radio"  name = "{{question._id}}" value = "{{choice._id}}" ng-model= "formData[question._id]" required>
+                                    <input type="radio"  name = "{{question._id}}" value = "{{choice._id}}" ng-model= "formData[question._id]" ng-click="checkSurveyLogic(choice.nextPageURL)" required>
                                     <div class="choiceText">{{choice.text}}</div>
                                 </label>
                             </div>

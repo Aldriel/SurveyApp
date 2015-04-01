@@ -10,6 +10,8 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         $scope.answerSet = {};
         $scope.unchecked = true;
         $scope.value =[];
+        $scope.nextPageId = '';
+
 
         // Create new Survey
         $scope.create = function () {
@@ -101,8 +103,14 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         };
 
         $scope.getPage = function () {
+            var id;
+            if ($scope.nextPageId !== ''){
+                id = $scope.nextPageId;
+            } else {
+                id = $scope.survey.pages[$scope.pageIndex]._id;
+            }
             $scope.page = Pages.get({
-                pageId: $scope.survey.pages[$scope.pageIndex]._id
+                pageId: id
             });
         };
 
@@ -117,24 +125,23 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 
         $scope.previousPage = function () {
             $scope.pageIndex--;
-            $scope.formData = {};
-            $scope.unchecked = true;
-            $scope.value =[];
+            initPage();
 
         };
 
-        function nextPage() {
-            $scope.pageIndex++;
+        function initPage() {
             $scope.formData = {};
             $scope.unchecked = true;
             $scope.value =[];
         }
 
-        $scope.startSurvey = function () {
+        function nextPage() {
             $scope.pageIndex++;
-            $scope.formData = {};
-            $scope.unchecked = true;
-            $scope.value =[];
+            initPage();
+        }
+
+        $scope.startSurvey = function () {
+            nextPage();
             $scope.initAnswerSet();
         };
 
@@ -183,7 +190,6 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
         $scope.submitForm = function() {
             // check to make sure the form is completely valid
             registerAnswers();
-
         };
 
         function isPresent(array, element){
@@ -211,8 +217,15 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                 $scope.value[choice._id] = true;
                 $scope.unchecked = false;
             }
+        };
 
+
+         $scope.checkSurveyLogic= function(pageId){
+            if(pageId !== ''){
+                $scope.nextPageId = pageId;
+            } else {
+                $scope.nextPageId = '';
+            }
         };
     }
-
 ]);
