@@ -90,7 +90,7 @@ exports.list = function(req, res) {
  * Survey middleware
  */
 exports.surveyByID = function(req, res, next, id) { 
-	Survey.findById(id).populate('user', 'displayName').populate('pages').exec(function(err, survey) {
+	Survey.findById(id).populate('user', 'displayName').populate({path:'pages', options:{sort:{'number':'asc'}}}).exec(function(err, survey) {
 		if (err) return next(err);
 		if (! survey) return next(new Error('Failed to load Survey ' + id));
 		req.survey = survey ;

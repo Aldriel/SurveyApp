@@ -12,19 +12,15 @@
     <section>
         <div class="page-header">
             <h3>Pages</h3><a class="btn btn-primary" href="/#!/surveys/{{survey._id}}/addPage">Add page</a>
-
+            <br>
         </div>
         <div class="list-group" data-ng-repeat="page in survey.pages| orderBy: 'number'" data-ng-href="#!/pages/{{page._id}}" >
                 <h4> {{page.number}}. <a href="/#!/pages/{{page._id}}">{{page.title}}</a></h4>
                 <a class="btn btn-primary" href="/#!/pages/{{page._id}}/edit">Modify</a>
-                <a class="btn btn-primary" data-ng-click="removePage();">
+                <a class="btn btn-primary" data-ng-click="removePage(page._id);">
                     <i class="glyphicon glyphicon-trash"></i>
                 </a>
-
-
-
         </div>
-
         <div class="alert alert-warning text-center" data-ng-hide="!pages.$resolved || pages.length">
             No Pages yet, why don't you <a href="/#!/surveys/{{survey._id}}/addPage">create one</a>?
         </div>

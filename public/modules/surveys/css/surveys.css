@@ -4,8 +4,26 @@
     margin-right:auto;
     padding:1px;
     margin-top:25px;
-    width: 1090px;
-    height: 950px;
+    width: 900px;
+    height:600px;
+}
+
+section{
+    width:890px;
+}
+.content {
+    margin-top:65px;
+    color:#000000;
+    min-heignt:300px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:2px 10px 0px 10px;
+    width:950px;
+    background-color: #FFFFFF;
+    border:1px solid #222222;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px #444444;
+    opacity: 0.75;
 }
 #header{
     height:12px;
@@ -27,7 +45,7 @@
     margin-right:auto;
     margin-top:10px;
     padding:2px 10px 0 10px;
-    width:1070px;
+    width:920px;
     overflow-x: hidden;
     overflow-y: hidden;
     background-color: #FFFFFF;
@@ -44,7 +62,7 @@ textarea #header{
 }
 
 .surveySection{
-    margin: 12px 0 10px 0;
+    margin: 2px 0 14px 0;
     padding:6px 0 3px 0;
     background-color: #150759;
     border-radius:6px;
@@ -64,7 +82,7 @@ textarea #header{
 }
 
 .page{
-    height: 350px;
+    height: 300px;
     padding: 0 20px 0 20px;
 }
 
@@ -85,25 +103,23 @@ input{
     width: 600px;
     line-height: 160%;
 }
-  input[type=radio]{
+input[type=radio]{
     margin-right:6px;
 }
 
 input[type=checkbox]{
     margin-right:6px;
 }
-
 #sm_e_s{
     overflow-x: hidden;
     overflow-y: hidden;
 }
-
 .buttons {
-    width:870px;
+    width:780px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 45px;
-    margin-bottom: 36px;
+    margin-bottom: 10px;
 }
 
 .submitButton{
@@ -112,25 +128,24 @@ input[type=checkbox]{
     margin-right: auto;
     padding-left:355px;
     margin-top: 45px;
-    margin-bottom: 36px;
+    margin-bottom: 14px;
 }
 .btn{
     padding: 6px 10px 6px 10px;
 }
 
 .next{
-    width:800px;
-    height:40px;
-    padding-left:500px;
-    margin-bottom:10px;
-
+    width:740px;
+    height:35px;
+    padding-left:410px;
+    margin-top:40px;
 }
 
 .start{
-    width:800px;
-    height:40px;
-    padding-left:460px;
-    margin-bottom:10px;
+    width:740px;
+    height:35px;
+    padding-left:394px;
+    margin-bottom:50px;
 }
 
 .leftButton{
@@ -140,18 +155,12 @@ input[type=checkbox]{
 .rightButton{
     margin-left:640px;
 }
-
-
 .radioMatrix{
     margin-left:24px;
 }
 table {
-    border: 1px solid black;
-    border-collapse: collapse;
-    border-spacing: 1px;
 
 }
-
 th {
     width: 15%;
     padding:6px 6px 6px 8px;
@@ -160,29 +169,30 @@ th {
 
 td {
     border: 1px solid black;
-    width: 15%;
+    width: 14%;
     padding:6px 6px 6px 8px;
     text-align: center;
-
-
-
 }
 td.firstCol{
-    width: 25%;
+    width: 29%;
+}
+
+div.multipleQuestion {
+    width:800px;
+    height:40px;
+    padding-left:405px;
+    margin-bottom:10px;
 }
 
 table.multipleQuestion{
-    border: 1px solid #000066;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 1px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    margin:30px 20px 35px 30px;
-    width: 850px;
-}
-
-td.multipleQuestion{
-    padding:4px 10px 4px 10px;
-    text-align: left;
+    margin:30px 30px 35px 20px;
+    width: 800px;
 }
 
 #footer{
@@ -195,5 +205,17 @@ td.multipleQuestion{
     font-weight:bold;
     padding-top:2px;
     padding-bottom:6px;
+}
+
+.surveyEnd{
+    height: 100px;
+    padding:80px 10px 35px 10px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size: 18pt;
+    font-weight: bold;
+    text-align: center;
+    line-height: 160%;
+    color:#000066;
 }
 
