@@ -11,7 +11,7 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
-    <h4>{{question.text}}</h4>
+    <h4><span ng-bind-html="question.text"></span></h4>
     <section data-ng-controller="ChoicesController" data-ng-init="find()">
         <div  data-ng-repeat="choice in choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}" >
             <div class = "choice" ng-show="choice.question === question._id">

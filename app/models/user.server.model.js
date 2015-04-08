@@ -41,6 +41,10 @@ var UserSchema = new Schema({
 		type: String,
 		trim: true
 	},
+    institution: {
+        type: String,
+        trim: true
+    },
 	username: {
         type: String,
         trim: true,
@@ -66,8 +70,8 @@ var UserSchema = new Schema({
     },
 	password: {
 		type: String,
-		default: '',
-		validate: [validateLocalStrategyPassword, 'Password should be longer']
+		default: ''
+		//validate: [validateLocalStrategyPassword, 'Password should be longer']
 	},
 	salt: {
 		type: String

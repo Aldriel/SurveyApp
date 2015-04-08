@@ -5,6 +5,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 	function($scope, $stateParams, $location, Authentication, Surveys, Pages, Questions, Answers, Answersets) {
 
         $scope.authentication = Authentication;
+
         $scope.pageIndex = 0;
         $scope.formData = {};
         $scope.answerSet = {};
@@ -227,5 +228,6 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                 $scope.nextPageId = '';
             }
         };
+
     }
 ]);

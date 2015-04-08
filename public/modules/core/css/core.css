@@ -21,7 +21,6 @@ body {
 
 /*Navbar and menu modifications*/
 .navbar-inverse {
-    margin-top: 1px;
 
     background-image: -webkit-linear-gradient(top, #c7c5f5 0%, #553d5f 100%);
     background-image:      -o-linear-gradient(top, #c7c5f5 0%, #553d5f 100%);
