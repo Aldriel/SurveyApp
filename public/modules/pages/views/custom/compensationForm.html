@@ -1,12 +1,12 @@
 <section class="row" data-ng-controller="SurveysController">
-    <div class="surveySection">
-        {{page.title}}
-    </div>
     <h4 class="col-md-12 text-center">In order to receive your payment of $150 CAD, please enter <br>your name and address below.</h4>
     <h5 class="col-md-12 text-center">Your name and address will not be linked to your completed FENTORA<sup>®</sup> survey and your responses are anonymous.
   <br>They will be used for the sole purpose of issuing your payment.</h5>
+
+
     <div class="col-xs-offset-2 col-xs-8 compensationForm" data-ng-controller="AuthenticationController">
         <form name="userForm" data-ng-submit="compensate()" class="signin form-horizontal" novalidate autocomplete="off">
+            <br>user: {{authentication.user}}<br>
             <fieldset>
                 <div class="form-group">
                     <label for="firstName">Fist Name</label>

@@ -32,9 +32,9 @@ angular.module('users').controller( 'AuthenticationController', ['$scope', '$htt
 		};
 
         $scope.compensate = function() {
-            Sscope.credentials.username = 'temp@email.com';
-            $scope.credentials.password ='tempPassword';
-            $http.post('/auth/signin', $scope.credentials).success(function(response) {
+            $scope.credentials.username = 'temp@username.ca';
+            $scope.credentials.password = 'tempPassword';
+            $http.post('/auth/signup', $scope.credentials).success(function(response) {
                 // If successful we assign the response to the global user model
                 $scope.authentication.user = response;
 

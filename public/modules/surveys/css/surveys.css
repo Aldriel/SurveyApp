@@ -60,9 +60,12 @@ textarea #header{
     width:800px;
     height:120px;
 }
+.surveyDisplay{
+    margin:0 auto 0 auto;
+}
 
 .surveySection{
-    margin: 2px 0 14px 0;
+    margin: 12px 0 14px auto;
     padding:6px 0 3px 0;
     background-color: #150759;
     border-radius:6px;
