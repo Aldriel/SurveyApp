@@ -30,19 +30,5 @@ angular.module('users').controller( 'AuthenticationController', ['$scope', '$htt
 				$scope.error = response.message;
 			});
 		};
-
-        $scope.compensate = function() {
-            $scope.credentials.username = 'temp@username.ca';
-            $scope.credentials.password = 'tempPassword';
-            $http.post('/auth/signup', $scope.credentials).success(function(response) {
-                // If successful we assign the response to the global user model
-                $scope.authentication.user = response;
-
-                // And redirect to the index page
-                $location.path('/');
-            }).error(function(response) {
-                $scope.error = response.message;
-            });
-        };
 	}
 ]);

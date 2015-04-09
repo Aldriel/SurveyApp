@@ -1,8 +1,8 @@
 'use strict';
 
 // Surveys controller
-angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys',  'Pages', 'Questions', 'Answers','Answersets',
-	function($scope, $stateParams, $location, Authentication, Surveys, Pages, Questions, Answers, Answersets) {
+angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$http', '$location', 'Authentication', 'Surveys',  'Pages', 'Questions', 'Answers','Answersets',
+	function($scope, $stateParams, $http, $location, Authentication, Surveys, Pages, Questions, Answers, Answersets) {
 
         $scope.authentication = Authentication;
 
@@ -140,6 +140,9 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
             $scope.pageIndex++;
             initPage();
         }
+        $scope.nextSurveyPage = function(){
+            nextPage();
+        };
 
         $scope.startSurvey = function () {
             nextPage();
@@ -183,7 +186,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                     $scope.error = errorResponse.data.message;
                 });
             });
-            console.log(timeout);
+
             setTimeout(updateAnswerSet, timeout);
             setTimeout(nextPage, timeout);
         }
@@ -229,5 +232,20 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
             }
         };
 
+        $scope.credentials ={};
+        $scope.compensate = function() {
+            $scope.credentials.username =  $scope.credentials.firstName+$scope.credentials.lastName+'@temp.ca';
+            $scope.credentials.password = 'tempPassword';
+            $http.post('/auth/signup', $scope.credentials).success(function(response) {
+                // If successful we assign the response to the global user model
+                $scope.authentication.user = response;
+                nextPage();
+
+
+            }).error(function(response) {
+                $scope.error = response.message;
+            });
+
+        };
     }
 ]);

@@ -104,15 +104,14 @@ angular.module('pages').controller('PagesController', ['$scope', '$stateParams',
         $scope.getQuestions = function () {
             var id;
             $scope.questions =[];
-            if(!$scope.page.questions.isEmpty) {
-                for (id in $scope.page.questions) {
-                    $scope.questions.push(
-                        Questions.get({
-                            questionId: $scope.page.questions[id]
-                        })
-                    );
-                }
+            for (id in $scope.page.questions) {
+                $scope.questions.push(
+                    Questions.get({
+                        questionId: $scope.page.questions[id]
+                    })
+                );
             }
+
         };
 
         //Functions for choices
