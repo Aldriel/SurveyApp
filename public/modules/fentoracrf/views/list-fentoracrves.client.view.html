@@ -1,0 +1,19 @@
+<section data-ng-controller="FentoracrfController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Fentoracrf</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="fentoracrf in fentoracrf" data-ng-href="#!/fentoracrf/{{fentoracrf._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="fentoracrf.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="fentoracrf.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="fentoracrf.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!fentoracrf.$resolved || fentoracrf.length">
+    	No Fentoracrf yet, why don't you <a href="/#!/fentoracrf/create">create one</a>?
+    </div>
+</section>

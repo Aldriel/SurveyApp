@@ -7,7 +7,10 @@ angular.module('pages').factory('Pages', ['$resource',
 		}, {
 			update: {
 				method: 'PUT'
-			}
+			},
+            get: {
+                method: 'GET'
+            }
 		});
 	}
 ]);

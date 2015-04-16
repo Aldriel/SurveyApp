@@ -14,7 +14,6 @@ module.exports = function(app) {
 		.put(users.requiresLogin, surveys.hasAuthorization, surveys.update)
 		.delete(users.requiresLogin, surveys.hasAuthorization, surveys.delete);
 
-
 	// Finish by binding the Survey middleware
 	app.param('surveyId', surveys.surveyByID);
 };
