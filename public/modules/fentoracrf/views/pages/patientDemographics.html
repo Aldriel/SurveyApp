@@ -1,0 +1,41 @@
+<section class="surveyDisplay">
+    <div class="surveySection">
+        PATIENT DEMOGRAPHIC
+    </div>
+    <ng-form name="pageForm">
+        <div class="question-header">
+            What is the patient's gender?
+        </div>
+        <div class="choices">
+            <div class= "choice" >
+                <label>
+                    <input type="radio"  name = "gender" value = "male" ng-model= "gender"  required>
+                    <div class="choiceText">male</div>
+                </label>
+                <label>
+                    <input type="radio"  name = "gender" value = "female" ng-model= "gender"  required>
+                    <div class="choiceText">female</div>
+                </label>
+            </div>
+        </div>
+        <div class="question-header">
+            What is the patient's date of birth?
+        </div>
+        <div class="choices">
+            <div class= "choice" >
+                <div>
+                    Date: <input type="date"  name ="dateOfBirth"  ng-model= "dateOfBirth" placeholder="yyyy-MM-dd" required>
+                </div>
+            </div>
+        </div>
+        <div class ="next">
+            <button ng-click="submitPatientDetails1()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        </div>
+    </ng-form>
+    <div id="footer">
+        Confidential. For research purposes only.
+    </div>
+</section>
+
+
+

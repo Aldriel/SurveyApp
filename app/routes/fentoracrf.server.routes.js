@@ -6,7 +6,6 @@ module.exports = function(app) {
 
 	// Fentoracrf Routes
 	app.route('/fentoracrf')
-        .get(users.requiresLogin,fentoracrf.read)
 		.post(users.requiresLogin, fentoracrf.create);
 
 	app.route('/fentoracrf/:fentoracrfId')

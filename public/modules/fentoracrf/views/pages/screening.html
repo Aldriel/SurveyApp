@@ -1,0 +1,34 @@
+<div class="surveyDisplay">
+    <div class="surveySection">
+       SCREENING QUESTION
+    </div>
+    <ng-form name="pageForm">
+        <div class="question-header">
+            To how many patients have you prescribed FENTORA&reg (fentanyl buccal/sublingual effervescent tablets)
+            in the last 3 months?
+        </div>
+        <div class="choices">
+            <div class= "choice" >
+                    <label>
+                        <input type="radio"  name = "nbOfPatients" value = "1" ng-model= "nbOfPatients"  required>
+                        <div class="choiceText">1</div>
+                    </label>
+                <label>
+                    <input type="radio"  name = "nbOfPatients" value = "2" ng-model= "nbOfPatients"  required>
+                    <div class="choiceText">2</div>
+                </label>
+                <label>
+                    <input type="radio"  name = "nbOfPatients" value = "3" ng-model= "nbOfPatients"  required>
+                    <div class="choiceText">≥3</div>
+                </label>
+            </div>
+        </div>
+        <div class ="next">
+            <button ng-click="submitScreening()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        </div>
+    </ng-form>
+    <div id="footer">
+        Confidential. For research purposes only.
+    </div>
+</div>
+

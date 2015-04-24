@@ -234,7 +234,6 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 
         $scope.credentials ={};
         $scope.compensate = function() {
-            $scope.credentials.username =  $scope.credentials.firstName+$scope.credentials.lastName+'@temp.ca';
             $scope.credentials.password = 'tempPassword';
             $http.post('/auth/signup', $scope.credentials).success(function(response) {
                 // If successful we assign the response to the global user model

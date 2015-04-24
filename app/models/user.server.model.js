@@ -25,26 +25,8 @@ var validateLocalStrategyPassword = function(password) {
  * User Schema
  */
 var UserSchema = new Schema({
-	firstName: {
-		type: String,
-		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in your first name']
-	},
-	lastName: {
-		type: String,
-		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in your last name']
-	},
-	displayName: {
-		type: String,
-		trim: true
-	},
-    institution: {
-        type: String,
-        trim: true
-    },
+
+   //email address is used as username
 	username: {
         type: String,
         trim: true,
@@ -52,27 +34,20 @@ var UserSchema = new Schema({
         validate: [validateLocalStrategyProperty, 'Please fill in your email'],
         match: [/.+\@.+\..+/, 'Please fill a valid email address']
 	},
-    address: {
+    password: {
         type: String,
         default: ''
+        //validate: [validateLocalStrategyPassword, 'Password should be longer']
     },
-    city: {
-        type: String,
-        default: ''
+    compensationForm:{
+        type: Schema.ObjectId,
+        ref: 'Compensationform'
     },
-    province: {
-        type: String,
-        default: ''
+    fentoraCrf:{
+        type: Schema.ObjectId,
+        ref: 'Fentoracrf'
     },
-    postalCode: {
-        type: String,
-        default: ''
-    },
-	password: {
-		type: String,
-		default: ''
-		//validate: [validateLocalStrategyPassword, 'Password should be longer']
-	},
+
 	salt: {
 		type: String
 	},

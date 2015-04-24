@@ -1,0 +1,39 @@
+<section class="surveyDisplay">
+    <div class="surveySection">
+        FENTORA TREATMENT DETAILS
+    </div>
+    <ng-form name="pageForm">
+        <div class="question-header">
+            Please indicate below other opioid treatments received by the patient  prior to FENTORA®
+            (fentanyl buccal/sublingual effervescent tablets) or concomitantly (including the dosage):
+        </div>
+        <table class="opioids">
+            <tr>
+                <th class="opioidFirstCol"></th>
+                <th>Name</th>
+                <th>Daily Dosage(mg)</th>
+                <th>Start Date</th>
+                <th>Still active</th>
+                <th>End Date</th>
+            </tr>
+            <tr data-ng-repeat="x in Opioids">
+                <td class="opioidFirstCol">Opioid {{$index + 1}}</td>
+                <td><input type="text" name="opioidName[$index]" ng-model="opioidName[$index]"placeholder=" opioid name" required></td>
+                <td><input type="number" name="opioidDosage[$index]" ng-model="opioidDosage[$index]"placeholder=" Daily dosage" min="1" required></td>
+                <td><input type="date"  name ="opioidStartDate[$index]"  ng-model="opioidStartDate[$index]" placeholder="yyyy-MM-dd" required></td>
+                <td><input type="checkbox" name ="opioidStillActive[$index]"  ng-model="opioidStillActive[$index]" required></td>
+                <td><input ng-disabled="opioidStillActive[$index]" type="date"  name="opioidEndDate[$index]"  ng-model="opioidEndDate[$index]" placeholder="yyyy-MM-dd" required></td>
+            </tr>
+        </table>
+        <div class ="newRow">
+            <button ng-click="addOpioid()" class="btn btn-primary" >Add new row</button>
+        </div>
+        <div class ="next">
+            <button ng-click="submitPatientDetails3()" class="btn btn-primary">Next</button>
+        </div>
+    </ng-form>
+    <div id="footer">
+        Confidential. For research purposes only.
+    </div>
+</section>
+

@@ -1,0 +1,103 @@
+<section class="surveyDisplay">
+    <div class="surveySection">
+        FENTORA TREATMENT MONITORING
+    </div>
+    <ng-form name="pageForm">
+        <div class="question-header">
+            During FENTORA® (fentanyl buccal/sublingual effervescent tablets) treatment, did the patient demonstrate
+            any of the following behaviours?
+        </div>
+        <div class="question-header inlineQuestion">
+            Overwhelming focus on opioid drug related issues<br>
+        </div>
+        <div class="inlineChoices">
+            <label>
+                <input type="radio"  name="patientBehavior.opioidFocus" value = "yes" ng-model= "patientBehavior.opioidFocus"  required>
+                <div class="inlineChoice">Yes</div>
+            </label>
+            <label>
+                <input type="radio"  name = "patientBehavior.opioidFocus" value = "no" ng-model= "patientBehavior.opioidFocus"  required>
+                <div class="inlineChoice">No</div>
+            </label>
+            <label>
+                <input type="radio"  name = "patientBehavior.opioidFocus" value = "unknown" ng-model= "patientBehavior.opioidFocus"  required>
+                <div class="inlineChoice">Do not know</div>
+            </label>
+        </div>
+        <div class="choiceSpecification leftTab" ng-show="patientBehavior.opioidFocus==='yes'">
+            Please specify details (date of first report, relevant medical history and any other risk factors)
+            <textarea ng-model= "patientBehavior.opioidFocusDetails"></textarea>
+        </div>
+        <div class="question-header inlineQuestion">
+            Drug use escalation (early refills/larger amounts) unexplained by change in clinical condition
+        </div>
+        <div class="inlineChoices">
+            <label>
+                <input type="radio"  name = "patientBehavior.drugUseEscalation" value="yes" ng-model= "patientBehavior.drugUseEscalation"  required>
+                <div class="inlineChoice">Yes</div>
+            </label>
+            <label>
+                <input type="radio"  name = "patientBehavior.drugUseEscalation" value = "no" ng-model= "patientBehavior.drugUseEscalation"  required>
+                <div class="inlineChoice">No</div>
+            </label>
+            <label>
+                <input type="radio"  name = "patientBehavior.drugUseEscalation" value = "unknown" ng-model= "patientBehavior.drugUseEscalation"  required>
+                <div class="inlineChoice">Do not know</div>
+            </label>
+        </div>
+        <div class="choiceSpecification leftTab" ng-show="patientBehavior.drugUseEscalation==='yes'">
+            Please specify details (date of first report, relevant medical history and any other risk factors)
+            <textarea ng-model= "patientBehavior.drugUseEscalationDetails"></textarea>
+        </div>
+        <div class="question-header inlineQuestion">
+            Reports of lost, spilled or stolen medications<br>
+        </div>
+        <div class="inlineChoices">
+            <label>
+                <input type="radio"  name = "patientBehavior.missingMedication" value = "yes" ng-model= "patientBehavior.missingMedication"  required>
+                <div class="inlineChoice">Yes</div>
+            </label>
+            <label>
+                <input type="radio"  name = "patientBehavior.missingMedication" value = "no" ng-model= "patientBehavior.missingMedication"  required>
+                <div class="inlineChoice">No</div>
+            </label>
+            <label>
+                <input type="radio"  name = "patientBehavior.missingMedication" value = "unknown" ng-model= "patientBehavior.missingMedication"  required>
+                <div class="inlineChoice">Do not know</div>
+            </label>
+        </div>
+        <div class="choiceSpecification leftTab" ng-show="patientBehavior.missingMedication==='yes'">
+            Please specify details (date of first report, relevant medical history and any other risk factors)
+            <textarea ng-model= "patientBehavior.missingMedicationDetails"></textarea>
+        </div>
+        <div class="question-header inlineQuestion">
+            Unclear aetiology and/or exaggeration of pain<br>
+        </div>
+        <div class="inlineChoices">
+            <label>
+                <input type="radio"  name = "patientBehavior.painExaggeration" value="yes" ng-model= "patientBehavior.painExaggeration"  required>
+                <div class="inlineChoice">Yes</div>
+            </label>
+            <label>
+                <input type="radio"  name = "patientBehavior.painExaggeration" value="no" ng-model= "patientBehavior.painExaggeration"  required>
+                <div class="inlineChoice">No</div>
+            </label>
+            <label>
+                <input type="radio"  name = "patientBehavior.painExaggeration" value="unknown" ng-model= "patientBehavior.painExaggeration"  required>
+                <div class="inlineChoice">Do not know</div>
+            </label>
+        </div>
+        <div class="choiceSpecification leftTab" ng-show="patientBehavior.painExaggeration==='yes'">
+            Please specify details (date of first report, relevant medical history and any other risk factors)
+            <textarea ng-model= "patientBehavior.painExaggerationDetails"></textarea>
+        </div>
+        <div class ="next">
+            <button ng-click="submittreatmentMonitoring2()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        </div>
+    </ng-form>
+    <div id="footer">
+        Confidential. For research purposes only.
+    </div>
+</section>
+
+

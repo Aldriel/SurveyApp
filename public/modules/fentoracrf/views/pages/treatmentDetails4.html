@@ -1,0 +1,69 @@
+<section class="surveyDisplay">
+    <div class="surveySection">
+        FENTORA TREATMENT DETAILS
+    </div>
+    <ng-form name="pageForm">
+        <div class="question-header">
+            Please list any concomitant treatments that the patient was taking while on FENTORA®
+            (fentanyl buccal/sublingual effervescent tablets). <b>Check all that apply.</b>
+        </div>
+        <div class="choices">
+            <div class= "choice" >
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Amiodarone">
+                    <div class="choiceText">Amiodarone</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Diltiazem">
+                    <div class="choiceText">Diltiazem</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Verapamil">
+                    <div class="choiceText">Verapamil</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Triazole">
+                    <div class="choiceText">Triazole</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Imidazole">
+                    <div class="choiceText">Imidazole antifungals (e.g. ketoconazole, itraconazole, voriconazole, posaconazole, fluconazole, miconazole)</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.HIVProteaseInhibitors">
+                    <div class="choiceText">HIV-protease inhibitors (e.g. ritonavir, nelfinavir, amprénavir, indinavir, atazanavir)</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Macrolids">
+                    <div class="choiceText">Macrolids (e.g. erythromycine, clarithromycine, josamycine, telithromycine)</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Benzodiazepines">
+                    <div class="choiceText">Benzodiazepines</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.AntiInfectiousAgent">
+                    <div class="choiceText">Anti-infectious agents (e.g. rifampicine, rifabutine, efavirenz, nevirapine and griseofulvin)</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Other">
+                    <div class="choiceText">Other drugs</div>
+                </label>
+                <div ng-show="concomitantTreatments.Other" class="choice" >
+                    <div>Please specify:
+                        <div>
+                            <textarea  ng-model= "concomitantTreatments.otherDrugs"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="next">
+            <button ng-click="submitPatientDetails4()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        </div>
+    </ng-form>
+    <div id="footer">
+        Confidential. For research purposes only.
+    </div>
+</section>
+

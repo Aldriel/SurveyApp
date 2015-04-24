@@ -8,7 +8,7 @@
         </div>
         <div ng-show ="page.customPageURL ===''">
             <p class="pageHeader"  ng-bind-html= "page.header"></p>
-            <ng-form name="pageForm" >
+            <ng-form name="pageForm">
                 <div data-ng-repeat="question in questions| orderBy: 'number'" data-ng-href="#!/questions/{{question._id}}">
                     <div class="question-header">
                         <h4><a ng-show="authentication.user.roles[0] === 'admin'" href="/#!/questions/{{question._id}}" ng-bind-html="question.text"></a></h4>
@@ -37,7 +37,6 @@
                         </div>
 
                         <!-- FORM TEXT-->
-
                         <div  ng-show="question.type==='text'" class= "choice" data-ng-repeat="choice in question.choices| orderBy: 'order'" data-ng-href="#!/choices/{{choice._id}}">
                             <div>
                                 {{choice.text}}: <input type="text"  name ="{{choice._id}}"  ng-model= "formData[choice._id]" ng-minlength=3>

@@ -97,15 +97,51 @@ textarea #header{
 .choice {
     margin:5px 8px 5px 20px;
 }
+
+.choiceSpecification{
+    margin:2px 8px 12px 30px;
+}
+
+.leftTab{
+    padding-left:40px;
+}
+
+.choiceSpecification > input[type=text]{
+    height:21px;
+    width:250px;
+    padding: 2px 0 0 5px;
+    font-size: 10pt;
+}
 input{
     display:inline-block;
     vertical-align: top;
+}
+
+textarea{
+    width:75%;
 }
 .choiceText{
     display:inline-block;
     width: 600px;
     line-height: 160%;
 }
+
+.inlineQuestion{
+    display:inline-block;
+    padding-left:12px;
+    width:390px;
+}
+.inlineChoices  {
+    display:inline-block;
+}
+
+.inlineChoice {
+    display:inline-block;
+    line-height: 160%;
+    width: 100px;
+}
+
+
 input[type=radio]{
     margin-right:6px;
 }
@@ -113,6 +149,15 @@ input[type=radio]{
 input[type=checkbox]{
     margin-right:6px;
 }
+input[type=date]{
+    height:24px;
+    width:150px;
+}
+input[type=number]{
+     height:24px;
+     width:135px;
+     padding-left:5px;
+ }
 #sm_e_s{
     overflow-x: hidden;
     overflow-y: hidden;
@@ -211,13 +256,14 @@ table.multipleQuestion{
     text-align:center;
     font-size: 12pt;
     font-weight:bold;
+    margin-top:20px;
     padding-top:2px;
     padding-bottom:6px;
 }
 
 .surveyEnd{
-    height: 100px;
-    padding:15px 10px 40px 10px;
+    height: 160px;
+    padding:50px 10px 40px 10px;
     margin-left:auto;
     margin-right:auto;
     font-size: 12pt;
@@ -226,4 +272,29 @@ table.multipleQuestion{
     line-height: 160%;
     color: #000024;
 }
+
+table.opioids{
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin:30px 15px 35px 15px;
+    width: 840px;
+}
+
+td.opioidFirstCol {
+    width:50px;
+}
+
+table.opioids tr > td > input[type=text]{
+    width:135px;
+}
+
+.newRow {
+    margin-left:25px;
+}
+
+
 

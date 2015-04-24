@@ -5,7 +5,7 @@ angular.module('users').controller( 'AuthenticationController', ['$scope', '$htt
 		$scope.authentication = Authentication;
 
 		// If user is signed in then redirect back home
-		if ($scope.authentication.user) $location.path('/');
+		if ($scope.authentication.user) $location.path('/fentoracrf');
 
 		$scope.signup = function() {
 			$http.post('/auth/signup', $scope.credentials).success(function(response) {
@@ -25,7 +25,7 @@ angular.module('users').controller( 'AuthenticationController', ['$scope', '$htt
 				$scope.authentication.user = response;
 
 				// And redirect to the index page
-
+                $location.path('/fentoracrf');
 			}).error(function(response) {
 				$scope.error = response.message;
 			});

@@ -1,0 +1,35 @@
+<section class="surveyDisplay">
+    <div class="surveySection">
+        FENTORA DIVERSION
+    </div>
+    <ng-form name="pageForm">
+        <div class="question-header">
+            Do you suspect that your patient has been selling or providing FENTORA® (
+            fentanyl buccal/sublingual effervescent tablets) to third parties?
+        </div>
+        <div class="choices">
+            <div class= "choice" >
+                <label>
+                    <input type="radio"  name = "diversion" value = "yes" ng-model= "diversion"  required>
+                    <div class="choiceText">Yes</div>
+                </label>
+                <label>
+                    <input type="radio"  name = "diversion" value = "no" ng-model= "diversion"  required>
+                    <div class="choiceText">No</div>
+                </label>
+                <label>
+                    <input type="radio"  name = "diversion" value = "unknow" ng-model= "diversion"  required>
+                    <div class="choiceText">Do not know</div>
+                </label>
+            </div>
+        </div>
+        <div class ="next">
+            <button ng-click="submitDiversion()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        </div>
+    </ng-form>
+    <div id="footer">
+        Confidential. For research purposes only.
+    </div>
+</section>
+
+

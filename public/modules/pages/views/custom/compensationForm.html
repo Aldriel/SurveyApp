@@ -1,46 +1,90 @@
-<section class="row">
-    <h4 class="col-md-12 text-center">In order to receive your payment of $150 CAD, please enter <br>your name and address below.</h4>
-    <h5 class="col-md-12 text-center">Your name and address will not be linked to your completed FENTORA<sup>®</sup> survey and your responses are anonymous.
-  <br>They will be used for the sole purpose of issuing your payment.</h5>
-    <div class="col-xs-offset-2 col-xs-8 compensationForm">
-        <form name="userForm" class="signin form-horizontal" novalidate autocomplete="off">
-            <fieldset>
-                <div class="form-group">
-                    <label for="firstName">Fist Name</label>
-                    <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="Fist Name">
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Last Name">
-                </div>
-                <div class="form-group">
-                    <label for="institution">Institution/organisation (if applicable)</label>
-                    <input type="text" id="institution" name="institution" class="form-control" data-ng-model="credentials.institution" placeholder="Institution">
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="address" class="form-control" data-ng-model="credentials.address" placeholder="Address">
-                </div>
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" id="city" name="city" class="form-control" data-ng-model="credentials.address" placeholder="City">
-                </div>
-                <div class="form-group">
-                    <label for="province">Province</label>
-                    <input type="text" id="province" name="province" class="form-control" data-ng-model="credentials.province" placeholder="Province">
-                </div>
-                <div class="form-group">
-                    <label for="postalCode">Postal code</label>
-                    <input type="text" id="postalCode" name="postalCode" class="form-control" data-ng-model="credentials.postalCode" placeholder="Postal code">
-                </div>
-                <div class="text-center form-group">
-                    <button type="submit" class="btn btn-large btn-primary" ng-click="compensate()" ng-disabled="userForm.$invalid">{{page.nextButtonText}}</button>
-                </div>
-                <div data-ng-show="error" class="text-center text-danger">
-                    <strong data-ng-bind="error"></strong>
-                </div>
-            </fieldset>
-        </form>
+
+<section class="row" ng-controller="CompensationformsController" >
+    compensationFormId: {{compensationFormId}}
+    <div ng-show="compensationFormId ===''">
+        <h4 class="col-md-12 text-center">In order to receive your payment of $150 CAD, please enter <br>your name and address below.</h4>
+        <h5 class="col-md-12 text-center">Your name and address will not be linked to your completed FENTORA<sup>®</sup> survey and your responses are anonymous.
+        <br>They will be used for the sole purpose of issuing your payment.</h5>
+        <div class="col-xs-offset-2 col-xs-8 compensationForm">
+            <form name="userForm" class="signin form-horizontal" novalidate autocomplete="off"  data-ng-submit="create()">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="firstName">Fist Name</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="firstName" placeholder="Fist Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="lastName" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="institution">Institution/organisation (if applicable)</label>
+                        <input type="text" id="institution" name="institution" class="form-control" data-ng-model="institution" placeholder="Institution">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" class="form-control" data-ng-model="address" placeholder="Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" class="form-control" data-ng-model="city" placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <label for="province">Province</label>
+                        <input type="text" id="province" name="province" class="form-control" data-ng-model="province" placeholder="Province">
+                    </div>
+                    <div class="form-group">
+                        <label for="postalCode">Postal code</label>
+                        <input type="text" id="postalCode" name="postalCode" class="form-control" data-ng-model="postalCode" placeholder="Postal code">
+                    </div>
+                    <div class="text-center form-group">
+                        <button type="submit" class="btn btn-large btn-primary"  ng-disabled="userForm.$invalid">{{page.nextButtonText}}</button>
+                    </div>
+                    <div data-ng-show="error" class="text-center text-danger">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </div>
+
+    <div class="surveyEnd" ng-hide="compensationFormId ==='' || continue">
+        <p>Thank you for completing the survey.</p>
+        <p> If you wish to proceed to the optional component of this epidemiologic study, please click on the link below.<br>
+            A compensation of 50-150$ will be offered for your time.<br>
+        </p>
+        <button class="btn btn-primary" ng-click="continueToCrf()">Continue</button>
+        <a class="btn btn-primary" href="/auth/signout">Terminate</a>
+    </div>
+
+    <div class="surveyEnd" ng-show="continue">
+        <p> Please enter an email address and a password in order to continue to the next session.
+        The email and password will be used to save and resume the survey.</p>
+        <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+            <form name="userForm" data-ng-submit="registerUser()" class="signin form-horizontal" novalidate autocomplete="off">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="username">Email</label>
+                        <input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+                    </div>
+                    <div class="text-center form-group">
+                        <button type="submit" class="btn btn-large btn-primary">Proceed</button>
+                    </div>
+                    <div data-ng-show="error" class="text-center text-danger">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
 </section>
+
+
+
+
 

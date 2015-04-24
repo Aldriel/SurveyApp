@@ -1,0 +1,61 @@
+<section class="surveyDisplay">
+    <div class="surveySection">
+        FENTORA TREATMENT MONITORING
+    </div>
+    <ng-form name="pageForm">
+        <div class="question-header">
+            Have you used any of these practices on your patient before initiating treatment with FENTORA®
+            (fentanyl buccal/sublingual effervescent tablets)? <b>Check all that apply.</b>
+        </div>
+        <div class="choices">
+            <div class="choice" >
+                <label>
+                    <input type="checkbox" ng-model="preventionPractices.painIntensityAssessment">
+                    <div class="choiceText">Assess patient’s level of pain intensity using a scale</div>
+                </label>
+                <div class="choiceSpecification"  ng-show="preventionPractices.painIntensityAssessment">
+                    Please specify the name of the scale: <input type="text"  ng-model= "preventionPractices.painIntensityScale" placeholder="Pain Assessment Scale" required>
+                </div>
+                <label>
+                    <input type="checkbox" ng-model="preventionPractices.functionLevelAssessment">
+                    <div class="choiceText">Assess patient’s level of function (e.g. social, recreational, occupational)</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="preventionPractices.addictionRiskAssessment">
+                    <div class="choiceText">Assess risk of addiction using a screening tool</div>
+                </label>
+                <div class="choiceSpecification" ng-show="preventionPractices.addictionRiskAssessment">
+                    Please specify the name of the tool: <input type="text"  ng-model= "preventionPractices.addictionScreeningTool" placeholder="Addiction screening tool" required>
+                </div>
+                <label>
+                    <input type="checkbox" ng-model="preventionPractices.psychologicalScreening">
+                    <div class="choiceText">Conduct formal psychological screening</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="preventionPractices.urineDrugScreening">
+                    <div class="choiceText">Do urine drug screening</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="preventionPractices.opioidTherapyBenefits">
+                    <div class="choiceText">Explain to patient potential benefits of opioid therapy in the long term</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="preventionPractices.opioidTherapyHarms">
+                    <div class="choiceText">Explain to patient potential harms of opioid therapy in the long term</div>
+                </label>
+                <label>
+                    <input type="checkbox" ng-model="preventionPractices.writtenInformations">
+                    <div class="choiceText">Give the patient written information about opioid therapy</div>
+                </label>
+            </div>
+        </div>
+        <div class ="next">
+            <button ng-click="submitTreatmentMonitoring1()" class="btn btn-primary">Next</button>
+        </div>
+    </ng-form>
+    <div id="footer">
+        Confidential. For research purposes only.
+    </div>
+</section>
+
+

@@ -1,0 +1,19 @@
+<section data-ng-controller="CompensationformsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Compensationforms</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="compensationform in compensationforms" data-ng-href="#!/compensationforms/{{compensationform._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="compensationform.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="compensationform.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="compensationform.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!compensationforms.$resolved || compensationforms.length">
+    	No Compensationforms yet, why don't you <a href="/#!/compensationforms/create">create one</a>?
+    </div>
+</section>
