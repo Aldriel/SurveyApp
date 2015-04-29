@@ -10,21 +10,21 @@
         <div class="choices">
             <div class= "choice" >
                     <label>
-                        <input type="radio"  name = "nbOfPatients" value = "1" ng-model= "nbOfPatients"  required>
+                        <input type="radio" value= "1" ng-model= "fentoraCRF.numberOfPatients"  required>
                         <div class="choiceText">1</div>
                     </label>
                 <label>
-                    <input type="radio"  name = "nbOfPatients" value = "2" ng-model= "nbOfPatients"  required>
+                    <input type="radio" value ="2" ng-model= "fentoraCRF.numberOfPatients"  required>
                     <div class="choiceText">2</div>
                 </label>
                 <label>
-                    <input type="radio"  name = "nbOfPatients" value = "3" ng-model= "nbOfPatients"  required>
+                    <input type="radio" value ="3" ng-model= "fentoraCRF.numberOfPatients"  required>
                     <div class="choiceText">≥3</div>
                 </label>
             </div>
         </div>
         <div class ="next">
-            <button ng-click="submitScreening()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+            <button ng-click="submitScreening()" class="btn btn-primary" ng-disabled="fentoraCRF.numberOfPatients===0">Next</button>
         </div>
     </ng-form>
     <div id="footer">

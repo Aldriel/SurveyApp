@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 	app.route('/patientcrves/:patientcrfId')
 		.get(patientcrves.read)
-		.put(users.requiresLogin, patientcrves.hasAuthorization, patientcrves.update)
+		.put(patientcrves.update)
 		.delete(users.requiresLogin, patientcrves.hasAuthorization, patientcrves.delete);
 
 	// Finish by binding the Patientcrf middleware

@@ -1,6 +1,6 @@
 <section class="surveyDisplay">
     <div class="surveySection">
-        FENTORA DIVERSION
+        PATIENT {{fentoraCRF.currentPatientNumber +1}} - FENTORA DIVERSION
     </div>
     <ng-form name="pageForm">
         <div class="question-header">
@@ -10,22 +10,23 @@
         <div class="choices">
             <div class= "choice" >
                 <label>
-                    <input type="radio"  name = "diversion" value = "yes" ng-model= "diversion"  required>
+                    <input type="radio" value = "yes" ng-model= "currentCRF.diversion"  required>
                     <div class="choiceText">Yes</div>
                 </label>
                 <label>
-                    <input type="radio"  name = "diversion" value = "no" ng-model= "diversion"  required>
+                    <input type="radio"  name = "diversion" value = "no" ng-model= "currentCRF.diversion"  required>
                     <div class="choiceText">No</div>
                 </label>
                 <label>
-                    <input type="radio"  name = "diversion" value = "unknow" ng-model= "diversion"  required>
+                    <input type="radio" value = "unknow" ng-model= "currentCRF.diversion" required>
                     <div class="choiceText">Do not know</div>
                 </label>
             </div>
         </div>
-        <div class ="next">
-            <button ng-click="submitDiversion()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        <div class="next">
+            <button ng-click="submitPage()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
         </div>
+
     </ng-form>
     <div id="footer">
         Confidential. For research purposes only.

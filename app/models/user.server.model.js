@@ -45,7 +45,8 @@ var UserSchema = new Schema({
     },
     fentoraCrf:{
         type: Schema.ObjectId,
-        ref: 'Fentoracrf'
+        ref: 'Fentoracrf',
+        default: null
     },
 
 	salt: {

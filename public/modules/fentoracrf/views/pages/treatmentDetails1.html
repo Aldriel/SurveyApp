@@ -1,6 +1,6 @@
 <section class="surveyDisplay">
     <div class="surveySection">
-        FENTORA TREATMENT DETAILS
+        PATIENT {{fentoraCRF.currentPatientNumber +1}} - FENTORA TREATMENT DETAILS
     </div>
     <ng-form name="pageForm">
         <div class="question-header">
@@ -11,7 +11,7 @@
         <div class="choices">
             <div class= "choice" >
                 <div>
-                    Date: <input type="date"  name="firstPrescriptionDate"  ng-model="firstPrescriptionDate" placeholder="yyyy-MM-dd" required>
+                    Date: <input type="date" ng-model="currentCRF.firstPrescriptionDate" placeholder="yyyy-MM-dd" required>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="choices">
             <div class= "choice" >
                 <div>
-                    Date: <input type="date"  name ="lastPrescriptionDate"  ng-model= "lastPrescriptionDate" placeholder="yyyy-MM-dd" required>
+                    Date: <input type="date" ng-model= "currentCRF.lastPrescriptionDate" placeholder="yyyy-MM-dd" required>
                 </div>
             </div>
         </div>
@@ -33,17 +33,17 @@
         <div class="choices">
             <div class= "choice" >
                 <label>
-                    <input type="radio"  name = "isOngoing" value = "yes" ng-model= "isOngoing"  required>
+                    <input type="radio"  name = "isOngoing" value = "yes" ng-model= "currentCRF.isOngoing"  required>
                     <div class="choiceText">yes</div>
                 </label>
                 <label>
-                    <input type="radio"  name = "isOngoing" value = "no" ng-model= "isOngoing"  required>
+                    <input type="radio"  name = "isOngoing" value = "no" ng-model= "currentCRF.isOngoing"  required>
                     <div class="choiceText">no</div>
                 </label>
             </div>
         </div>
         <div class ="next">
-            <button ng-click="submitPatientDetails1()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+            <button ng-click="submitPage()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
         </div>
     </ng-form>
     <div id="footer">

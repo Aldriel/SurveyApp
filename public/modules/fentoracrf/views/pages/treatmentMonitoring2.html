@@ -1,6 +1,6 @@
 <section class="surveyDisplay">
     <div class="surveySection">
-        FENTORA TREATMENT MONITORING
+        PATIENT {{fentoraCRF.currentPatientNumber +1}} - FENTORA TREATMENT MONITORING
     </div>
     <ng-form name="pageForm">
         <div class="question-header">
@@ -92,7 +92,7 @@
             <textarea ng-model= "patientBehavior.painExaggerationDetails"></textarea>
         </div>
         <div class ="next">
-            <button ng-click="submittreatmentMonitoring2()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+            <button ng-click="submitTreatmentMonitoring2()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
         </div>
     </ng-form>
     <div id="footer">

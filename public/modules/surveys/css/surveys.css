@@ -11,6 +11,7 @@
 section{
     width:890px;
 }
+
 .content {
     margin-top:65px;
     color:#000000;
@@ -25,6 +26,7 @@ section{
     box-shadow: 5px 5px 8px #444444;
     opacity: 0.75;
 }
+
 #header{
     height:12px;
     color:#222222;
@@ -39,6 +41,7 @@ section{
     float:right;
     margin-right:30px;
 }
+
 #survey {
     color:#000000;
     margin-left:auto;
@@ -54,7 +57,6 @@ section{
     box-shadow: 5px 5px 8px #444444;
     opacity: 0.75;
 }
-
 
 textarea #header{
     width:800px;
@@ -186,7 +188,7 @@ input[type=number]{
     width:740px;
     height:35px;
     padding-left:410px;
-    margin-top:40px;
+    margin:20px 0 20px 0;
 }
 
 .start{
@@ -263,7 +265,7 @@ table.multipleQuestion{
 
 .surveyEnd{
     height: 160px;
-    padding:50px 10px 40px 10px;
+    padding:50px 10px 20px 10px;
     margin-left:auto;
     margin-right:auto;
     font-size: 12pt;

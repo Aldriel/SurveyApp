@@ -9,7 +9,7 @@ angular.module('patientcrves').controller('PatientcrvesController', ['$scope', '
 		$scope.create = function() {
 			// Create new Patientcrf object
 			var patientcrf = new Patientcrves ({
-				name: this.name
+
 			});
 
 			// Redirect after save
@@ -17,7 +17,7 @@ angular.module('patientcrves').controller('PatientcrvesController', ['$scope', '
 				$location.path('patientcrves/' + response._id);
 
 				// Clear form fields
-				$scope.name = '';
+
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

@@ -1,6 +1,6 @@
 <section class="surveyDisplay">
     <div class="surveySection">
-        FENTORA TREATMENT DETAILS
+        PATIENT {{fentoraCRF.currentPatientNumber +1}} - FENTORA TREATMENT DETAILS
     </div>
     <ng-form name="pageForm">
         <div class="question-header">
@@ -10,7 +10,7 @@
         <div class="choices">
             <div class= "choice" >
                 <div>
-                    <input type="number"  name ="dailyDosage"  ng-model= "dailyDosage" min="1" required> &mu;g/day
+                    <input type="number" ng-model= "currentCRF.dailyDosage" min="1" required> &mu;g/day
                 </div>
             </div>
         </div>
@@ -20,12 +20,12 @@
         <div class="choices">
             <div class= "choice" >
                 <div>
-                    <textarea  name ="patientCondition"  ng-model= "patientCondition" required></textarea>
+                    <textarea  ng-model= "currentCRF.patientsCondition" required></textarea>
                 </div>
             </div>
         </div>
         <div class ="next">
-            <button ng-click="submitPatientDetails2()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+            <button ng-click="submitPage()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
         </div>
     </ng-form>
 

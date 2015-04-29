@@ -1,6 +1,6 @@
 <section class="surveyDisplay">
     <div class="surveySection">
-        FENTORA TREATMENT DETAILS
+        PATIENT {{fentoraCRF.currentPatientNumber +1}} - FENTORA TREATMENT DETAILS
     </div>
     <ng-form name="pageForm">
         <div class="question-header">
@@ -18,18 +18,18 @@
             </tr>
             <tr data-ng-repeat="x in Opioids">
                 <td class="opioidFirstCol">Opioid {{$index + 1}}</td>
-                <td><input type="text" name="opioidName[$index]" ng-model="opioidName[$index]"placeholder=" opioid name" required></td>
-                <td><input type="number" name="opioidDosage[$index]" ng-model="opioidDosage[$index]"placeholder=" Daily dosage" min="1" required></td>
-                <td><input type="date"  name ="opioidStartDate[$index]"  ng-model="opioidStartDate[$index]" placeholder="yyyy-MM-dd" required></td>
-                <td><input type="checkbox" name ="opioidStillActive[$index]"  ng-model="opioidStillActive[$index]" required></td>
-                <td><input ng-disabled="opioidStillActive[$index]" type="date"  name="opioidEndDate[$index]"  ng-model="opioidEndDate[$index]" placeholder="yyyy-MM-dd" required></td>
+                <td><input type="text" ng-model="currentCRF.otherOpioids[$index].name" placeholder=" opioid name" required></td>
+                <td><input type="number" ng-model="currentCRF.otherOpioids[$index].dailyDosage" placeholder=" Daily dosage" min="1" required></td>
+                <td><input type="date" ng-model="currentCRF.otherOpioids[$index].startDate" placeholder="yyyy-MM-dd" required></td>
+                <td><input type="checkbox" ng-model="currentCRF.otherOpioids[$index].isOngoing" required></td>
+                <td><input ng-disabled="currentCRF.otherOpioids[$index].isOngoing" type="date" ng-model="currentCRF.otherOpioids[$index].endDate" placeholder="yyyy-MM-dd" required></td>
             </tr>
         </table>
         <div class ="newRow">
             <button ng-click="addOpioid()" class="btn btn-primary" >Add new row</button>
         </div>
         <div class ="next">
-            <button ng-click="submitPatientDetails3()" class="btn btn-primary">Next</button>
+            <button ng-click="submitPage()" class="btn btn-primary">Next</button>
         </div>
     </ng-form>
     <div id="footer">

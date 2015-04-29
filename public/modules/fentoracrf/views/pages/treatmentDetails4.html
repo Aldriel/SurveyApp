@@ -1,10 +1,10 @@
 <section class="surveyDisplay">
     <div class="surveySection">
-        FENTORA TREATMENT DETAILS
+        PATIENT {{fentoraCRF.currentPatientNumber +1}} - FENTORA TREATMENT DETAILS
     </div>
     <ng-form name="pageForm">
         <div class="question-header">
-            Please list any concomitant treatments that the patient was taking while on FENTORA®
+            Please select any concomitant treatments that the patient was taking while on FENTORA®
             (fentanyl buccal/sublingual effervescent tablets). <b>Check all that apply.</b>
         </div>
         <div class="choices">
@@ -56,6 +56,10 @@
                         </div>
                     </div>
                 </div>
+                <label>
+                    <input type="checkbox" ng-model="concomitantTreatments.Other">
+                    <div class="choiceText">None</div>
+                </label>
             </div>
         </div>
         <div class ="next">

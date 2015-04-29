@@ -1,0 +1,24 @@
+<section class="surveyDisplay" ng-show="fentoraCRF.currentPatientNumber + 1>= fentoraCRF.numberOfPatients">
+    <div class="surveySection">
+        STUDY COMPLETED
+    </div>
+    <div class="surveyEnd">
+        You have successfully completed the study.<br>
+        Thank you for your time.
+    </div>
+</section>
+<section class="surveyDisplay" ng-show="fentoraCRF.currentPatientNumber +1 < fentoraCRF.numberOfPatients">
+    <div class="surveySection">
+        PATIENT {{fentoraCRF.currentPatientNumber +1}} COMPLETED
+    </div>
+    <div class="surveyEnd">
+        You have completed the CRF for patient {{fentoraCRF.currentPatientNumber +1}}.<br><br>
+        To continue with the next patient click the button below:
+    </div>
+    <div class ="next">
+        <button ng-click="newPatient()" class="btn btn-primary" >Continue</button>
+    </div>
+    <div id="footer">
+        Confidential. For research purposes only.
+    </div>
+</section>
