@@ -21,8 +21,8 @@
                 <td><input type="text" ng-model="currentCRF.otherOpioids[$index].name" placeholder=" opioid name" required></td>
                 <td><input type="number" ng-model="currentCRF.otherOpioids[$index].dailyDosage" placeholder=" Daily dosage" min="1" required></td>
                 <td><input type="date" ng-model="currentCRF.otherOpioids[$index].startDate" placeholder="yyyy-MM-dd" required></td>
-                <td><input type="checkbox" ng-model="currentCRF.otherOpioids[$index].isOngoing" required></td>
-                <td><input ng-disabled="currentCRF.otherOpioids[$index].isOngoing" type="date" ng-model="currentCRF.otherOpioids[$index].endDate" placeholder="yyyy-MM-dd" required></td>
+                <td><input type="checkbox" ng-model="currentCRF.otherOpioids[$index].isOngoing"></td>
+                <td><input ng-disabled="currentCRF.otherOpioids[$index].isOngoing" type="date" ng-model="currentCRF.otherOpioids[$index].endDate" placeholder="yyyy-MM-dd"></td>
             </tr>
         </table>
         <div class ="newRow">

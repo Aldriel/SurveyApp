@@ -5,9 +5,11 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
 	function($scope, $stateParams, $location, $http, Authentication, Fentoracrf, Patientcrves, Users) {
 		$scope.authentication = Authentication;
         $scope.currentPage = '/modules/fentoracrf/views/pages/screening.html';
+        $scope.finishSurvey = false;
         var pages = [
             'screening.html',
             'patientDemographics.html',
+            'end.html',
             'treatmentDetails1.html',
             'treatmentDetails2.html',
             'treatmentDetails3.html',
@@ -205,5 +207,10 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
         $scope.addOpioid = function(){
         $scope.Opioids.push({});
         };
+
+        $scope.terminateSurvey = function(){
+
+            $scope.finishSurvey = true;
+        }
 	}
 ]);
