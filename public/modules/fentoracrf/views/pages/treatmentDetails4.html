@@ -10,60 +10,57 @@
         <div class="choices">
             <div class= "choice" >
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Amiodarone">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.Amiodaron">
                     <div class="choiceText">Amiodarone</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Diltiazem">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.Diltiazem">
                     <div class="choiceText">Diltiazem</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Verapamil">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.Verapamil">
                     <div class="choiceText">Verapamil</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Triazole">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.Triazole">
                     <div class="choiceText">Triazole</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Imidazole">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.Imidazole">
                     <div class="choiceText">Imidazole antifungals (e.g. ketoconazole, itraconazole, voriconazole, posaconazole, fluconazole, miconazole)</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.HIVProteaseInhibitors">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.HIVProteaseInhibitors">
                     <div class="choiceText">HIV-protease inhibitors (e.g. ritonavir, nelfinavir, amprénavir, indinavir, atazanavir)</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Macrolids">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.Macrolids">
                     <div class="choiceText">Macrolids (e.g. erythromycine, clarithromycine, josamycine, telithromycine)</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Benzodiazepines">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.Benzodiazepines">
                     <div class="choiceText">Benzodiazepines</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.AntiInfectiousAgent">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.AntiInfectiousAgent">
                     <div class="choiceText">Anti-infectious agents (e.g. rifampicine, rifabutine, efavirenz, nevirapine and griseofulvin)</div>
                 </label>
                 <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Other">
+                    <input type="checkbox" ng-model="currentCRF.concomitantTreatments.Other">
                     <div class="choiceText">Other drugs</div>
                 </label>
-                <div ng-show="concomitantTreatments.Other" class="choice" >
+                <div ng-show="currentCRF.concomitantTreatments.Other" class="choice" >
                     <div>Please specify:
                         <div>
-                            <textarea  ng-model= "concomitantTreatments.otherDrugs"></textarea>
+                            <textarea  ng-model= "currentCRF.concomitantTreatments.otherDrugs"></textarea>
                         </div>
                     </div>
                 </div>
-                <label>
-                    <input type="checkbox" ng-model="concomitantTreatments.Other">
-                    <div class="choiceText">None</div>
-                </label>
             </div>
         </div>
-        <div class ="next">
-            <button ng-click="submitPatientDetails4()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        <div class ="crfButtons">
+            <a href="/auth/signout" class="btn btn-primary">Save and exit</a>
+            <button ng-click="submitPage()" class="btn btn-primary right" ng-disabled="pageForm.$invalid">Next page</button>
         </div>
     </ng-form>
     <div id="footer">

@@ -1,6 +1,6 @@
 <section class="surveyDisplay">
     <div class="surveySection">
-        PATIENT {{fentoraCRF.currentPatientNumber +1}} - PATIENT DEMOGRAPHIC
+        PATIENT {{fentoraCRF.currentPatientNumber +1}} - PATIENT DEMOGRAPHICS
     </div>
     <ng-form name="pageForm">
         <div class="question-header">
@@ -28,14 +28,13 @@
                 </div>
             </div>
         </div>
-        <div class ="next">
-            <button ng-click="submitPage()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        <div class ="crfButtons">
+            <a href="/auth/signout" class="btn btn-primary">Save and exit</a>
+            <button ng-click="submitPage()" class="btn btn-primary right" ng-disabled="pageForm.$invalid">Next page</button>
         </div>
     </ng-form>
     <div id="footer">
         Confidential. For research purposes only.
     </div>
 </section>
-
-
 

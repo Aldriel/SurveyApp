@@ -4,8 +4,8 @@
     </div>
     <ng-form name="pageForm">
         <div class="question-header">
-            Do you suspect that your patient has been selling or providing FENTORA® (
-            fentanyl buccal/sublingual effervescent tablets) to third parties?
+            Do you suspect that your patient has been selling or providing FENTORA® (fentanyl buccal/sublingual
+            effervescent tablets) to third parties?
         </div>
         <div class="choices">
             <div class= "choice" >
@@ -23,8 +23,9 @@
                 </label>
             </div>
         </div>
-        <div class="next">
-            <button ng-click="submitPage()" class="btn btn-primary" ng-disabled="pageForm.$invalid">Next</button>
+        <div class ="crfButtons">
+            <a href="/auth/signout" class="btn btn-primary">Save and exit</a>
+            <button ng-click="submitPage()" class="btn btn-primary right" ng-disabled="pageForm.$invalid">Next page</button>
         </div>
 
     </ng-form>

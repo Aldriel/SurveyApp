@@ -124,7 +124,7 @@ textarea{
 }
 .choiceText{
     display:inline-block;
-    width: 600px;
+    width: 720px;
     line-height: 160%;
 }
 
@@ -225,6 +225,7 @@ td {
 }
 td.firstCol{
     width: 29%;
+    text-align: left;
 }
 
 div.multipleQuestion {
@@ -273,6 +274,20 @@ table.multipleQuestion{
     text-align: center;
     line-height: 160%;
     color: #000024;
+}
+
+.crfButtons{
+    width: 92%;
+    margin-left:auto;
+    margin-right:auto;
+    padding:40px 0 8px 24px;
+}
+
+
+.right{
+    margin-left:70%;
+    padding-right:16px;
+    padding-left:16px;
 }
 
 table.opioids{

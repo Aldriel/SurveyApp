@@ -32,8 +32,8 @@ var PatientcrfSchema = new Schema({
                         isOngoing:  {type: String, enum:['yes', 'no', 'unknown']}
                     }
                 ],
-    concomitantTreatments: [String],
-    abusePreventionPractices:[String],
+    concomitantTreatments:{},
+    preventionPractices:{},
     patientBehaviours:[
                     {
                         behaviour: String,

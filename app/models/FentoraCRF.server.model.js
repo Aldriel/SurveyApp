@@ -27,7 +27,10 @@ var FentoracrfSchema = new Schema({
     numberOfPatients: Number,
     currentPatientNumber: Number,
     currentPageIndex: Number,
-    patientsCRFs:[FentoraPatientCRFSchema]
+    patientsCRFs:[{
+        type: Schema.ObjectId,
+        ref: 'Patientcrves'
+    }]
 });
 
 mongoose.model('Fentoracrf', FentoracrfSchema);

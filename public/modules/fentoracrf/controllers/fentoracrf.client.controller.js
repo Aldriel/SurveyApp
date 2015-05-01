@@ -1,20 +1,15 @@
 'use strict';
 
 // Fentoracrf controller
-angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Fentoracrf', 'Patientcrves',
-	function($scope, $stateParams, $location, $http, Authentication, Fentoracrf, Patientcrves) {
+angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Fentoracrf', 'Patientcrves', 'Users',
+	function($scope, $stateParams, $location, $http, Authentication, Fentoracrf, Patientcrves, Users) {
 		$scope.authentication = Authentication;
-        $scope.currentCRF = {'nothing':'nothing'};
-        $scope.fentoraCRF = {'nothing':'nothing'};
+        $scope.currentPage = '/modules/fentoracrf/views/pages/screening.html';
         var pages = [
             'screening.html',
             'patientDemographics.html',
-
-            'diversion.html',
-            'end.html',
             'treatmentDetails1.html',
             'treatmentDetails2.html',
-
             'treatmentDetails3.html',
             'treatmentDetails4.html',
             'treatmentMonitoring1.html',
@@ -31,8 +26,18 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
                 currentPageIndex: 0,
                 patientsCRFs:[]
             });
+
             $scope.fentoraCRF.$save(function (response) {
                 $scope.authentication.user.fentoraCrf = response._id;
+                updateUser();
+                $scope.currentCRF = new Patientcrves({
+                });
+                $scope.currentCRF.$save(function (response) {
+                    $scope.fentoraCRF.patientsCRFs.push(response._id);
+                    updateFentoraCrf();
+                }, function (errorResponse) {
+                    $scope.error = errorResponse.data.message;
+                });
             }, function (errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
@@ -42,26 +47,49 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
             $scope.currentPage = '/modules/fentoracrf/views/pages/' + pages[$scope.fentoraCRF.currentPageIndex];
         }
 
+        // Update user
+        function updateUser() {
+            $scope.success = $scope.error = null;
+            var user = new Users($scope.authentication.user);
+            user.$update(function(response) {
+                $scope.success = true;
+                Authentication.user = response;
+            }, function(response) {
+                $scope.error = response.data.message;
+            });
+        }
+
+        function fecthPatientCrf(){
+            var currentCRFId = $scope.fentoraCRF.patientsCRFs[$scope.fentoraCRF.currentPatientNumber];
+            $scope.currentCRF = Patientcrves.get({
+                patientcrfId: currentCRFId
+            });
+        }
+
+        function fetchFentoraCrf(){
+
+            $scope.fentoraCRF = Fentoracrf.get({
+                fentoracrfId: $scope.authentication.user.fentoraCrf
+            });
+            $scope.currentPage = '/modules/fentoracrf/views/pages/resumePage.html';
+        }
 
         function init() {
-            /*
-            if($scope.authentication.user.fentoraCrf === null){
-                $scope.initFentoraCRF();
-            } else{
-                var id = $scope.authentication.user.fentoraCrf;
-                $scope.fentoraCRF = Fentoracrf.get({
-                    fentoracrfId: id
-                });
+
+            if ($scope.authentication.user.fentoraCrf === null) {
+                $scope.message = 'fentoracrf was NULL';
+                $scope.initFentoraCRF(getPage);
+            } else {
+                fetchFentoraCrf(getPage);
             }
-            $scope.currentPage = '/modules/fentoracrf/views/pages/' + pages[0];
-            */
-            $scope.initFentoraCRF();
-            getPage();
         }
 
         init();
 
-
+        $scope.resume = function() {
+            fecthPatientCrf();
+            getPage();
+        };
 
 		// Remove existing Fentoracrf
 		$scope.remove = function(fentoracrf) {
@@ -83,7 +111,6 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
 		// Update existing Fentoracrf
 		$scope.update = function() {
 			var fentoracrf = $scope.fentoracrf;
-
 			fentoracrf.$update(function() {
 				$location.path('fentoracrf/' + fentoracrf._id);
 			}, function(errorResponse) {
@@ -125,7 +152,7 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
             $scope.currentCRF = new Patientcrves({
             });
             $scope.currentCRF.$save(function (response) {
-                $scope.fentoraCRF.patientsCRFs[$scope.currentCRF.currentPatientNumber] = response._id;
+                $scope.fentoraCRF.patientsCRFs.push(response._id);
                 $scope.fentoraCRF.currentPageIndex = 1;
                 setTimeout(getPage(), 50);
                 setTimeout($scope.fentoraCRF.currentPatientNumber++, 75);
@@ -133,6 +160,8 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
                 $scope.error = errorResponse.data.message;
             });
         };
+
+
 
         /**
          * SUBMIT FUNCTIONS FOR EVERY PAGES
@@ -153,10 +182,8 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
         }
 
         $scope.submitScreening = function() {
-            $scope.newPatient();
             updateFentoraCrf();
             $scope.fentoraCRF.currentPageIndex++;
-
             getPage();
         };
 
@@ -165,6 +192,10 @@ angular.module('fentoracrf').controller('FentoracrfController', ['$scope', '$sta
             updatePatientCrf();
             updateFentoraCrf();
             getPage();
+        };
+
+        $scope.saveAndExit = function() {
+
         };
 
         /**

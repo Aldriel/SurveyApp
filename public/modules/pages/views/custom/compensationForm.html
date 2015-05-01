@@ -1,9 +1,7 @@
-
 <section class="row" ng-controller="CompensationformsController" >
-    compensationFormId: {{compensationFormId}}
     <div ng-show="compensationFormId ===''">
-        <h4 class="col-md-12 text-center">In order to receive your payment of $150 CAD, please enter <br>your name and address below.</h4>
-        <h5 class="col-md-12 text-center">Your name and address will not be linked to your completed FENTORA<sup>®</sup> survey and your responses are anonymous.
+        <h4 class="col-md-12 text-center">In order to receive your compensation of $150 CAD, please enter <br>your name and address below.</h4>
+        <h5 class="col-md-12 text-center">Your name and address will not be linked to your completed FENTORA<sup>®</sup> survey and your responses will remain anonymous.
         <br>They will be used for the sole purpose of issuing your payment.</h5>
         <div class="col-xs-offset-2 col-xs-8 compensationForm">
             <form name="userForm" class="signin form-horizontal" novalidate autocomplete="off"  data-ng-submit="create()">
@@ -37,7 +35,7 @@
                         <input type="text" id="postalCode" name="postalCode" class="form-control" data-ng-model="postalCode" placeholder="Postal code">
                     </div>
                     <div class="text-center form-group">
-                        <button type="submit" class="btn btn-large btn-primary"  ng-disabled="userForm.$invalid">{{page.nextButtonText}}</button>
+                        <button type="submit" class="btn btn-large btn-primary"  ng-disabled="userForm.$invalid">Submit</button>
                     </div>
                     <div data-ng-show="error" class="text-center text-danger">
                         <strong data-ng-bind="error"></strong>
